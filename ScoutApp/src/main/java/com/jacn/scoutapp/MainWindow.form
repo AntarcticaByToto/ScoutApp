@@ -259,7 +259,6 @@
                                       <Component id="jCheckBox5" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jCheckBox6" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jCheckBox7" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jCheckBox8" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
@@ -444,9 +443,7 @@
                                       <Component id="jCheckBox6" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="jCheckBox7" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox8" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                                       <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -658,11 +655,6 @@
                 <Property name="text" type="java.lang.String" value="Attempted to Score Cargo"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="jCheckBox8">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Attempted to Climb"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="jLabel10">
               <Properties>
                 <Property name="text" type="java.lang.String" value="How Robot Picked Up Cargo"/>
@@ -675,12 +667,12 @@
             </Component>
             <Component class="javax.swing.JCheckBox" name="jCheckBox10">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Intake on Robot"/>
+                <Property name="text" type="java.lang.String" value="From Human Player"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="jCheckBox11">
               <Properties>
-                <Property name="text" type="java.lang.String" value="From Human Player"/>
+                <Property name="text" type="java.lang.String" value="Intake on Robot"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel11">
@@ -747,6 +739,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField6">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel22">
               <Properties>
@@ -794,6 +789,9 @@
             <Component class="javax.swing.JTextField" name="jTextField7">
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField8">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel25">
               <Properties>
@@ -813,6 +811,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="SUBMIT MATCH"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel28">
               <Properties>
@@ -820,9 +821,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField11">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField11ActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel29">
               <Properties>
@@ -855,9 +853,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField12">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField12ActionPerformed"/>
-              </Events>
             </Component>
           </SubComponents>
         </Container>

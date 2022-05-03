@@ -5,6 +5,8 @@
  */
 package com.jacn.scoutapp;
 
+import java.util.TreeMap;
+
 /**
  *
  * @author bjtex
@@ -14,8 +16,12 @@ public class MainWindow extends javax.swing.JFrame {
     /**
      * Creates new form MainWindow
      */
+    
+    TreeMap<Integer, Match> matches;
+    
     public MainWindow() {
         initComponents();
+         matches = new TreeMap<Integer, Match>();
     }
 
     /**
@@ -54,7 +60,6 @@ public class MainWindow extends javax.swing.JFrame {
         jCheckBox5 = new javax.swing.JCheckBox();
         jCheckBox6 = new javax.swing.JCheckBox();
         jCheckBox7 = new javax.swing.JCheckBox();
-        jCheckBox8 = new javax.swing.JCheckBox();
         jLabel10 = new javax.swing.JLabel();
         jCheckBox9 = new javax.swing.JCheckBox();
         jCheckBox10 = new javax.swing.JCheckBox();
@@ -192,15 +197,13 @@ public class MainWindow extends javax.swing.JFrame {
 
         jCheckBox7.setText("Attempted to Score Cargo");
 
-        jCheckBox8.setText("Attempted to Climb");
-
         jLabel10.setText("How Robot Picked Up Cargo");
 
         jCheckBox9.setText("No Cargo Pickup");
 
-        jCheckBox10.setText("Intake on Robot");
+        jCheckBox10.setText("From Human Player");
 
-        jCheckBox11.setText("From Human Player");
+        jCheckBox11.setText("Intake on Robot");
 
         jLabel11.setText("Intake Peformance");
 
@@ -224,6 +227,8 @@ public class MainWindow extends javax.swing.JFrame {
 
         jLabel21.setText("Lower Hub Shots Made:");
 
+        jTextField6.setEditable(false);
+
         jLabel22.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel22.setText("End Game");
 
@@ -241,19 +246,20 @@ public class MainWindow extends javax.swing.JFrame {
 
         jLabel24.setText("Total Points (Match)");
 
+        jTextField8.setEditable(false);
+
         jLabel25.setText("Comments:");
 
         jLabel27.setText("Match Number");
 
         jButton1.setText("SUBMIT MATCH");
-
-        jLabel28.setText("Robot Team Number");
-
-        jTextField11.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField11ActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
+
+        jLabel28.setText("Robot Team Number");
 
         jLabel29.setText("Field Placement");
 
@@ -262,12 +268,6 @@ public class MainWindow extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Red", "Blue" }));
 
         jLabel31.setText("Scout Name");
-
-        jTextField12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField12ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -322,8 +322,7 @@ public class MainWindow extends javax.swing.JFrame {
                                 .addComponent(jLabel9)
                                 .addComponent(jCheckBox5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jCheckBox6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jCheckBox7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jCheckBox8, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jCheckBox7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel12)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -465,9 +464,7 @@ public class MainWindow extends javax.swing.JFrame {
                                 .addComponent(jCheckBox6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jCheckBox7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jCheckBox8)
-                                .addGap(49, 49, 49)
+                                .addGap(75, 75, 75)
                                 .addComponent(jLabel11)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -583,13 +580,79 @@ public class MainWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField11ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        //@TODO  implement check functionality for uncomplete responses
+        
+        Auto a;
+        if (jCheckBox4.isSelected()) {
+            a = new Auto(Integer.parseInt(jTextField4.getText()), Integer.parseInt(jTextField2.getText()), Integer.parseInt(jTextField3.getText()), Integer.parseInt(jTextField1.getText()), 2, jCheckBox2.isSelected());
+        }
+        else if (jCheckBox3.isSelected()) {
+            a = new Auto(Integer.parseInt(jTextField4.getText()), Integer.parseInt(jTextField2.getText()), Integer.parseInt(jTextField3.getText()), Integer.parseInt(jTextField1.getText()), 1, jCheckBox2.isSelected());
+        }
+        else {
+            a = new Auto(Integer.parseInt(jTextField4.getText()), Integer.parseInt(jTextField2.getText()), Integer.parseInt(jTextField3.getText()), Integer.parseInt(jTextField1.getText()), 0, jCheckBox2.isSelected());
+        }
 
-    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField12ActionPerformed
+        TeleOp t;
+        int tb;
+        if (jCheckBox7.isSelected()) {
+            tb = 3;
+        }
+        else if (jCheckBox6.isSelected()) {
+            tb = 2;
+        }
+        else {
+            tb = 1;
+        }
+
+        int cb;
+        if (jCheckBox11.isSelected()) {
+            cb = 3;
+        }
+        else if (jCheckBox10.isSelected()) {
+            cb = 2;
+        }
+        else {
+            cb = 1;
+        }
+        t = new TeleOp(Integer.parseInt(jTextField5.getText()),Integer.parseInt(jTextField7.getText()), tb, 0.01 * jSlider1.getValue(), 0.01 * jSlider2.getValue(), 0.01 * jSlider3.getValue(), cb);
+
+        EndGame e;
+        if (jCheckBox16.isSelected()) {
+            e = new EndGame(5);
+        }
+        else if (jCheckBox15.isSelected()) {
+            e = new EndGame(4);
+        }
+        else if (jCheckBox14.isSelected()) {
+            e = new EndGame(3);
+        }
+        else if (jCheckBox13.isSelected()) {
+            e = new EndGame(2);
+        }
+        else {
+            e = new EndGame(1);
+        }
+
+        Robot r =  new Robot((Integer)(jSpinner1.getValue()), (String)(jComboBox1.getSelectedItem()),(Integer)(jSpinner2.getValue()),Integer.parseInt(jTextField11.getText()), jTextField12.getText(), jTextField9.getText(), a, t, e);
+            
+        
+        if (matches.containsKey((Integer)(jSpinner1.getValue()))) {
+            
+            matches.get((Integer)(jSpinner1.getValue())).setRobot(r);
+        }
+        else {
+            
+            Match m = new Match((Integer)(jSpinner1.getValue()));
+            m.setRobot(r);
+            
+            matches.put((Integer)(jSpinner1.getValue()), m);
+        }
+        
+        System.out.println(jSlider1.getValue());
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -642,7 +705,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox5;
     private javax.swing.JCheckBox jCheckBox6;
     private javax.swing.JCheckBox jCheckBox7;
-    private javax.swing.JCheckBox jCheckBox8;
     private javax.swing.JCheckBox jCheckBox9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
