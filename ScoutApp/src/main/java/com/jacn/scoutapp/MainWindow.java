@@ -103,6 +103,7 @@ public class MainWindow extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel31 = new javax.swing.JLabel();
         jTextField12 = new javax.swing.JTextField();
+        jCheckBox17 = new javax.swing.JCheckBox();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -236,7 +237,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         jCheckBox13.setText("Atempted, But Didn't Climb");
 
-        jCheckBox14.setText("Low Rung");
+        jCheckBox14.setText("Mid Rung");
 
         jCheckBox15.setText("High Rung");
 
@@ -269,6 +270,8 @@ public class MainWindow extends javax.swing.JFrame {
 
         jLabel31.setText("Scout Name");
 
+        jCheckBox17.setText("Low Rung");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -292,7 +295,7 @@ public class MainWindow extends javax.swing.JFrame {
                                     .addComponent(jLabel4)
                                     .addComponent(jCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jCheckBox2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jCheckBox3, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                    .addComponent(jCheckBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, Short.MAX_VALUE)
                                     .addComponent(jCheckBox4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(50, 50, 50)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -386,8 +389,6 @@ public class MainWindow extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jCheckBox13)
                                     .addComponent(jCheckBox12)
-                                    .addComponent(jCheckBox14)
-                                    .addComponent(jCheckBox15)
                                     .addComponent(jCheckBox16)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -414,7 +415,10 @@ public class MainWindow extends javax.swing.JFrame {
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                             .addComponent(jLabel31)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jCheckBox15)
+                                    .addComponent(jCheckBox17)
+                                    .addComponent(jCheckBox14))
                                 .addGap(495, 495, 495))))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -524,13 +528,15 @@ public class MainWindow extends javax.swing.JFrame {
                                 .addComponent(jCheckBox12)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jCheckBox13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jCheckBox17)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jCheckBox14)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(5, 5, 5)
                                 .addComponent(jCheckBox15)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jCheckBox16)
-                                .addGap(31, 31, 31)
+                                .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel23)
                                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -629,7 +635,7 @@ public class MainWindow extends javax.swing.JFrame {
         else if (jCheckBox14.isSelected()) {
             e = new EndGame(3);
         }
-        else if (jCheckBox13.isSelected()) {
+        else if (jCheckBox17.isSelected()) {
             e = new EndGame(2);
         }
         else {
@@ -699,6 +705,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox14;
     private javax.swing.JCheckBox jCheckBox15;
     private javax.swing.JCheckBox jCheckBox16;
+    private javax.swing.JCheckBox jCheckBox17;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JCheckBox jCheckBox4;

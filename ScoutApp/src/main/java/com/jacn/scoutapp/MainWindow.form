@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
@@ -342,8 +342,6 @@
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jCheckBox13" min="-2" max="-2" attributes="0"/>
                                           <Component id="jCheckBox12" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jCheckBox14" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jCheckBox15" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jCheckBox16" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="1" attributes="0">
@@ -380,6 +378,9 @@
                                                   <Component id="jTextField12" min="-2" pref="66" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
+                                          <Component id="jCheckBox15" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckBox17" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckBox14" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="495" max="-2" attributes="0"/>
                                   </Group>
@@ -517,13 +518,15 @@
                                       <Component id="jCheckBox12" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="jCheckBox13" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jCheckBox17" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="jCheckBox14" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                                       <Component id="jCheckBox15" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jCheckBox16" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jTextField6" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -763,7 +766,7 @@
             </Component>
             <Component class="javax.swing.JCheckBox" name="jCheckBox14">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Low Rung"/>
+                <Property name="text" type="java.lang.String" value="Mid Rung"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="jCheckBox15">
@@ -853,6 +856,11 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField12">
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="jCheckBox17">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Low Rung"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
