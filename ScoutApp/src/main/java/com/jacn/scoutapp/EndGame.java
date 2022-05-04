@@ -19,15 +19,18 @@ public class EndGame {
         this.climbBehavior = climbBehavior;
         
         switch (climbBehavior) {
+            case 5:
+                this.endGameScore = 15;//temp
+                break;
             case 4:
-                this.endGameScore = 0;//temp
+                this.endGameScore = 10;//temp
                 break;
             case 3:
-                this.endGameScore = 0;//temp
+                this.endGameScore = 6;//temp
                 break;
             case 2:
-                this.endGameScore = 0;//temp
-                break;
+                this.endGameScore = 4;
+                break;    
             default:
                 this.endGameScore = 0;
                 break;
