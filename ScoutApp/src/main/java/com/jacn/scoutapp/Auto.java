@@ -32,7 +32,7 @@ public class Auto {
         this.taxi = taxi;
        
         if (taxi) {
-            this.autoScore = autoUpperShotsMade * 4 + autoLowerShotsMade * 2 + 0; //taxi pts need adding
+            this.autoScore = autoUpperShotsMade * 4 + autoLowerShotsMade * 2 + 2;
         }
         else {
             this.autoScore = autoUpperShotsMade * 4 + autoLowerShotsMade * 2;
