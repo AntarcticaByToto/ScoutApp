@@ -5,6 +5,7 @@
  */
 package com.jacn.scoutapp;
 
+import java.awt.Color;
 import java.util.TreeMap;
 
 /**
@@ -587,8 +588,11 @@ public class MainWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-        //@TODO  implement check functionality for uncomplete responses
+
+        clearHighlights();
+        if (!checkSubmissions()) {
+            return;
+        }
         
         Auto a;
         if (jCheckBox4.isSelected()) {
@@ -771,4 +775,71 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
+
+    public boolean checkSubmissions() {
+        boolean turn = true;
+        
+        if ((Integer)(jSpinner1.getValue()) == 0) {
+            jSpinner1.setBackground(Color.red);
+            turn = false;
+        }
+        
+        if ((Integer)(jSpinner2.getValue()) == 0) {
+            jSpinner1.setBackground(Color.red);
+            turn = false;
+        }
+        
+        if (jTextField1.getText().equals("")) {
+            jTextField1.setBackground(Color.red);
+            turn = false;
+        }
+        if (jTextField2.getText().equals("")) {
+            jTextField2.setBackground(Color.red);
+            turn = false;
+        }
+        if (jTextField3.getText().equals("")) {
+            jTextField3.setBackground(Color.red);
+            turn = false;
+        }
+        if (jTextField4.getText().equals("")) {
+            jTextField4.setBackground(Color.red);
+            turn = false;
+        }
+        if (jTextField5.getText().equals("")) {
+            jTextField5.setBackground(Color.red);
+            turn = false;
+        }
+        if (jTextField7.getText().equals("")) {
+            jTextField7.setBackground(Color.red);
+            turn = false;
+        }
+        if (jTextField11.getText().equals("")) {
+            jTextField11.setBackground(Color.red);
+            turn = false;
+        }
+        if (jTextField12.getText().equals("")) {
+            jTextField12.setBackground(Color.red);
+            turn = false;
+        }
+        
+        if (turn == false) {
+            return false;
+        }
+        return true;
+    }
+    
+    public void clearHighlights () {
+        jSpinner1.setBackground(Color.white);
+        jSpinner2.setBackground(Color.white);
+        
+        jTextField1.setBackground(Color.white);
+        jTextField11.setBackground(Color.white);
+        jTextField12.setBackground(Color.white);
+        jTextField2.setBackground(Color.white);
+        jTextField3.setBackground(Color.white);
+        jTextField4.setBackground(Color.white);
+        jTextField5.setBackground(Color.white);
+        jTextField7.setBackground(Color.white);
+    }
+
 }
