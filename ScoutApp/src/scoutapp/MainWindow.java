@@ -42,6 +42,8 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel33.setText("Team Number");
         jTextField10.setVisible(false);
         jComboBox4.setVisible(false);
+        
+        jComboBox2ActionPerformed(null);
     }
 
     /**
@@ -906,6 +908,7 @@ public class MainWindow extends javax.swing.JFrame {
         }    }//GEN-LAST:event_jMenuItem_OpenActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        GraphicsPanelScore.ScoreType ty;
         switch (jComboBox2.getSelectedIndex()) {
             case 0:
                 jLabel33.setVisible(false);
@@ -913,6 +916,7 @@ public class MainWindow extends javax.swing.JFrame {
                 jTextField10.setVisible(false);
                 jTextField10.setText("");
                 jComboBox4.setVisible(false);
+                ty = GraphicsPanelScore.ScoreType.ALL;
                 break;
             case 1:
                 jLabel33.setVisible(true);
@@ -920,6 +924,7 @@ public class MainWindow extends javax.swing.JFrame {
                 jTextField10.setVisible(true);
                 jTextField10.setText("");
                 jComboBox4.setVisible(false);
+                ty = GraphicsPanelScore.ScoreType.TEAM;
                 break;
             default:
                 jLabel33.setVisible(true);
@@ -927,7 +932,23 @@ public class MainWindow extends javax.swing.JFrame {
                 jTextField10.setVisible(false);
                 jTextField10.setText("");
                 jComboBox4.setVisible(true);
+                ty = GraphicsPanelScore.ScoreType.ALLIANCE;
                 break;
+        }
+        
+        GraphicsPanelScore.AllianceColor ac;
+        if (jComboBox4.getSelectedIndex() != 0) {
+            ac = GraphicsPanelScore.AllianceColor.RED;
+        }
+        else {
+            ac = GraphicsPanelScore.AllianceColor.BLUE;
+        }
+        
+        switch (jComboBox3.getSelectedIndex()){
+            case 1 -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), ty, GraphicsPanelScore.DataType.AUTO, ac);
+            case 2 -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), ty, GraphicsPanelScore.DataType.END_GAME, ac);
+            case 3 -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), ty, GraphicsPanelScore.DataType.TELEOP, ac);
+            default -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), ty, GraphicsPanelScore.DataType.ALL_POINTS, ac);
         }
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
