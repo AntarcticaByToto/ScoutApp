@@ -84,4 +84,26 @@ public class Match implements Serializable{
         return matchNumber;
     }
     
+    public int getMatchScore() {
+        int score = 0;
+        if (red1 != null) {
+            score += red1.getScore();
+        }
+        if (red2 != null) {
+            score += red2.getScore();
+        }
+        if (red3 != null) {
+            score += red3.getScore();
+        }
+        if (blue1 != null) {
+            score += blue1.getScore();
+        }
+        if (blue2 != null) {
+            score += blue2.getScore();
+        }
+        if (blue3 != null) {
+            score += blue3.getScore();
+        }
+        return score; 
+    }
 }
