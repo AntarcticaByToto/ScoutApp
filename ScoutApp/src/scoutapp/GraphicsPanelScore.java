@@ -22,17 +22,17 @@ public class GraphicsPanelScore extends JPanel {
     
     private TreeMap<Integer, Match> matches;
     private String teamNumber;
-    private ScoreType scoreType;
     private DataType dataType;
+    private ScoreType scoreType;
     private AllianceColor allianceColor;
     
-    public enum ScoreType{
+    public enum DataType{
         ALLIANCE,
         TEAM,
         ALL;
     };
     
-    public enum DataType{
+    public enum ScoreType{
         ALL_POINTS,
         END_GAME,
         AUTO,
@@ -44,10 +44,10 @@ public class GraphicsPanelScore extends JPanel {
         BLUE
     }
 
-    public void paintData(TreeMap<Integer, Match> map, String team, ScoreType sc, DataType dt, AllianceColor ac) {
+    public void paintData(TreeMap<Integer, Match> map, String team, DataType dt, ScoreType st, AllianceColor ac) {
         
         this.matches = map;
-        this.scoreType = sc;
+        this.scoreType = st;
         this.dataType = dt;
         this.teamNumber = team;
         this.allianceColor = ac;
@@ -80,6 +80,62 @@ public class GraphicsPanelScore extends JPanel {
         
         g.drawLine(yAxisWidth, xAxisHeight, yAxisWidth, borderHeight);        // Y axis
         g.drawLine(yAxisWidth, xAxisHeight, width - borderWidth, xAxisHeight);      // X Axis
+        
+        int highestMatchScore = 0;
+        for (int key : matches.keySet()) {
+            highestMatchScore = Integer.max(highestMatchScore, matches.get(key).getMatchScore());
+        }
+        if (highestMatchScore == 0) {
+            return;
+        }
+        
+        if (dataType == DataType.ALL) {
+            //graph rectangles
+            int matchRangeSize = matches.keySet().size(); 
+            int rectangleWidth = useableWidth / matchRangeSize;
+            int rectangleHeight = useableHeight / highestMatchScore;
+
+            int widthLoss = -1 * ((rectangleWidth * matchRangeSize) - useableWidth);
+            int heightLoss = -1 * ((rectangleHeight * matchRangeSize) - useableHeight);
+
+            int currentMatch = 0;
+            int previousX = yAxisWidth + (widthLoss / 2);
+            int previousY = (xAxisHeight - (heightLoss / 2)) - ( 7 * rectangleHeight);;
+            for (int i=0; i < matchRangeSize; i++) {
+                int score = matches.get(matches.keySet().toArray()[i]).getMatchScore();
+
+                int colorSteps = 255 / matchRangeSize;
+                Color currentColor = new Color(colorSteps * i, 0, 0);
+                g.setColor(currentColor);
+
+                int x = yAxisWidth + (widthLoss / 2) + (i * rectangleWidth);
+                int y = (xAxisHeight - (heightLoss / 2)) - ((score + 7) * rectangleHeight);
+                int inWidth = rectangleWidth;
+                int inHeight = rectangleHeight * score;
+                g.fillRect(x, y, inWidth, inHeight);
+
+                g.setColor(Color.BLUE);
+                if (i % 3 == 0) {
+                    int inX1 = previousX;
+                    int inY1 = previousY;
+                    int inX2 = x;
+                    int inY2 = y + ((previousY - y) / 2);
+                    g.drawLine(inX1, inY1, inX2, inY2);
+                    g.drawLine(inX1, inY1 - 1, inX2, inY2 - 1);
+                    g.drawLine(inX1, inY1 - 2, inX2, inY2 - 2);
+                    g.drawLine(inX1, inY1 - 3, inX2, inY2 - 3);
+                    previousX = inX2;
+                    previousY = inY2;
+                }
+
+            }
+        }
+        else if (dataType == DataType.ALLIANCE) {
+            
+        }
+        else {
+            
+        }
         
              //graph rectangles
 //        int size = cases.keySet().size(); 
