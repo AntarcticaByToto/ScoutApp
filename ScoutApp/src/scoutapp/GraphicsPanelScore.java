@@ -13,7 +13,6 @@ import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;
 import java.util.TreeMap;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 /**
  *
@@ -22,9 +21,10 @@ import javax.swing.JTextField;
 public class GraphicsPanelScore extends JPanel {
     
     private TreeMap<Integer, Match> matches;
-    private JTextField field;
+    private String teamNumber;
     private ScoreType scoreType;
     private DataType dataType;
+    private AllianceColor allianceColor;
     
     public enum ScoreType{
         ALLIANCE,
@@ -38,16 +38,22 @@ public class GraphicsPanelScore extends JPanel {
         AUTO,
         TELEOP
     }
+    
+    public enum AllianceColor{
+        RED,
+        BLUE
+    }
 
-    public void paintData(TreeMap<Integer, Match> map, JTextField textField, ScoreType sc, DataType dt) {
+    public void paintData(TreeMap<Integer, Match> map, String team, ScoreType sc, DataType dt, AllianceColor ac) {
         
         this.matches = map;
         this.scoreType = sc;
         this.dataType = dt;
+        this.teamNumber = team;
+        this.allianceColor = ac;
         
         // Call the paint90, paintComponent() int order to update the panel conetent
         repaint();
-        
     }
 
     @Override
