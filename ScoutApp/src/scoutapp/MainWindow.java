@@ -37,7 +37,6 @@ public class MainWindow extends javax.swing.JFrame {
         matches = new TreeMap<Integer, Match>();
         //loadMatchesFromFile();
         jMenuItem_Save.setEnabled(false);
-        loadMatchesFromFile();
         jLabel33.setVisible(false);
         jLabel33.setText("Team Number");
         jTextField10.setVisible(false);
@@ -1326,7 +1325,8 @@ public class MainWindow extends javax.swing.JFrame {
             System.out.println(e.toString());
         }
     }
-   private void saveFile(File file) {
+    
+    private void saveFile(File file) {
         try {
                 FileOutputStream fos = new FileOutputStream(file);
                 ObjectOutputStream oos = new ObjectOutputStream(fos);
