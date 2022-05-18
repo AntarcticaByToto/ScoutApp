@@ -70,8 +70,8 @@ public class GraphicsPanelScore extends JPanel {
         int borderHeight = 50;
         int borderWidth = 50;
         
-        int useableHeight = height - (2 * borderHeight);
-        int useableWidth = width - (2 * borderWidth);
+        int usableHeight = height - (2 * borderHeight);
+        int usableWidth = width - (2 * borderWidth);
          
         int yAxisWidth = borderWidth;
         int xAxisHeight = height - borderHeight;
@@ -92,15 +92,15 @@ public class GraphicsPanelScore extends JPanel {
         if (dataType == DataType.ALL) {
             //graph rectangles
             int matchRangeSize = matches.keySet().size(); 
-            int rectangleWidth = useableWidth / matchRangeSize;
-            int rectangleHeight = useableHeight / highestMatchScore;
+            int rectangleWidth = (int)((double)usableWidth / matchRangeSize);
+            int rectangleHeight = (int)((double)usableHeight / highestMatchScore);
 
-            int widthLoss = -1 * ((rectangleWidth * matchRangeSize) - useableWidth);
-            int heightLoss = -1 * ((rectangleHeight * matchRangeSize) - useableHeight);
+            int widthLoss = -1 * ((rectangleWidth * matchRangeSize) - usableWidth);
+            int heightLoss = -1 * ((rectangleHeight * matchRangeSize) - usableHeight);
 
             int currentMatch = 0;
-            int previousX = yAxisWidth + (widthLoss / 2);
-            int previousY = (xAxisHeight - (heightLoss / 2)) - ( 7 * rectangleHeight);;
+            int previousX = yAxisWidth;
+            int previousY = xAxisHeight;
             for (int i=0; i < matchRangeSize; i++) {
                 int score = matches.get(matches.keySet().toArray()[i]).getMatchScore();
 
@@ -108,10 +108,10 @@ public class GraphicsPanelScore extends JPanel {
                 Color currentColor = new Color(colorSteps * i, 0, 0);
                 g.setColor(currentColor);
 
-                int x = yAxisWidth + (widthLoss / 2) + (i * rectangleWidth);
-                int y = (xAxisHeight - (heightLoss / 2)) - ((score + 7) * rectangleHeight);
+                int x = yAxisWidth + (int)(((double)i / matches.keySet().size()) * usableWidth);
+                int y = xAxisHeight - (int)(((double)score / highestMatchScore) * usableHeight);
                 int inWidth = rectangleWidth;
-                int inHeight = rectangleHeight * score;
+                int inHeight = (int)(((double)score / highestMatchScore) * usableHeight);
                 g.fillRect(x, y, inWidth, inHeight);
 
                 g.setColor(Color.BLUE);
