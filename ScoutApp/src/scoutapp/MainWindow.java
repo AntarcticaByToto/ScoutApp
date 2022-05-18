@@ -7,9 +7,17 @@ package scoutapp;
 
 import java.awt.Color;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Scanner;
 import java.util.TreeMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -21,13 +29,15 @@ public class MainWindow extends javax.swing.JFrame {
     /**
      * Creates new form MainWindow
      */
-    
     TreeMap<Integer, Match> matches;
-    
+    private File currentFile;
+
     public MainWindow() {
         initComponents();
         matches = new TreeMap<Integer, Match>();
-        loadMatchesFromFile();
+        //loadMatchesFromFile();
+        jMenuItem_Save.setEnabled(false);
+
     }
 
     /**
@@ -112,10 +122,12 @@ public class MainWindow extends javax.swing.JFrame {
         jCheckBox17 = new javax.swing.JCheckBox();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem_Save = new javax.swing.JMenuItem();
+        jMenuItem_SaveAs = new javax.swing.JMenuItem();
+        jMenuItem_Open = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1400, 850));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -323,8 +335,7 @@ public class MainWindow extends javax.swing.JFrame {
                                 .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(111, 111, 111)
-                                .addComponent(jLabel15)
-                                .addGap(206, 206, 206)))
+                                .addComponent(jLabel15)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1)
                         .addGap(247, 247, 247))
@@ -337,7 +348,7 @@ public class MainWindow extends javax.swing.JFrame {
                                             .addComponent(jLabel4)
                                             .addComponent(jCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(jCheckBox2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jCheckBox3, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                            .addComponent(jCheckBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, Short.MAX_VALUE)
                                             .addComponent(jCheckBox4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addGap(50, 50, 50)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -581,6 +592,31 @@ public class MainWindow extends javax.swing.JFrame {
         jTabbedPane3.addTab("Scout Match", jPanel1);
 
         jMenu1.setText("File");
+
+        jMenuItem_Save.setText("Save");
+        jMenuItem_Save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_SaveActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem_Save);
+
+        jMenuItem_SaveAs.setText("Save As");
+        jMenuItem_SaveAs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_SaveAsActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem_SaveAs);
+
+        jMenuItem_Open.setText("Open");
+        jMenuItem_Open.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_OpenActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem_Open);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Edit");
@@ -612,15 +648,13 @@ public class MainWindow extends javax.swing.JFrame {
         if (!checkSubmissions()) {
             return;
         }
-        
+
         Auto a;
         if (jCheckBox4.isSelected()) {
             a = new Auto(Integer.parseInt(jTextField4.getText()), Integer.parseInt(jTextField2.getText()), Integer.parseInt(jTextField3.getText()), Integer.parseInt(jTextField1.getText()), 2, jCheckBox2.isSelected());
-        }
-        else if (jCheckBox3.isSelected()) {
+        } else if (jCheckBox3.isSelected()) {
             a = new Auto(Integer.parseInt(jTextField4.getText()), Integer.parseInt(jTextField2.getText()), Integer.parseInt(jTextField3.getText()), Integer.parseInt(jTextField1.getText()), 1, jCheckBox2.isSelected());
-        }
-        else {
+        } else {
             a = new Auto(Integer.parseInt(jTextField4.getText()), Integer.parseInt(jTextField2.getText()), Integer.parseInt(jTextField3.getText()), Integer.parseInt(jTextField1.getText()), 0, jCheckBox2.isSelected());
         }
 
@@ -628,60 +662,135 @@ public class MainWindow extends javax.swing.JFrame {
         int tb;
         if (jCheckBox7.isSelected()) {
             tb = 3;
-        }
-        else if (jCheckBox6.isSelected()) {
+        } else if (jCheckBox6.isSelected()) {
             tb = 2;
-        }
-        else {
+        } else {
             tb = 1;
         }
 
         int cb;
         if (jCheckBox11.isSelected()) {
             cb = 3;
-        }
-        else if (jCheckBox10.isSelected()) {
+        } else if (jCheckBox10.isSelected()) {
             cb = 2;
-        }
-        else {
+        } else {
             cb = 1;
         }
-        t = new TeleOp(Integer.parseInt(jTextField5.getText()),Integer.parseInt(jTextField7.getText()), tb, 0.01 * jSlider1.getValue(), 0.01 * jSlider2.getValue(), 0.01 * jSlider3.getValue(), cb);
+        t = new TeleOp(Integer.parseInt(jTextField5.getText()), Integer.parseInt(jTextField7.getText()), tb, 0.01 * jSlider1.getValue(), 0.01 * jSlider2.getValue(), 0.01 * jSlider3.getValue(), cb);
 
         EndGame e;
         if (jCheckBox16.isSelected()) {
             e = new EndGame(5);
-        }
-        else if (jCheckBox15.isSelected()) {
+        } else if (jCheckBox15.isSelected()) {
             e = new EndGame(4);
-        }
-        else if (jCheckBox14.isSelected()) {
+        } else if (jCheckBox14.isSelected()) {
             e = new EndGame(3);
-        }
-        else if (jCheckBox17.isSelected()) {
+        } else if (jCheckBox17.isSelected()) {
             e = new EndGame(2);
-        }
-        else {
+        } else {
             e = new EndGame(1);
         }
 
-        Robot r =  new Robot((Integer)(jSpinner1.getValue()), (String)(jComboBox1.getSelectedItem()),(Integer)(jSpinner2.getValue()),Integer.parseInt(jTextField11.getText()), jTextField12.getText(), jTextField9.getText(), a, t, e);
-            
-        
-        if (matches.containsKey((Integer)(jSpinner1.getValue()))) {
-            
-            matches.get((Integer)(jSpinner1.getValue())).setRobot(r);
-        }
-        else {
-            
-            Match m = new Match((Integer)(jSpinner1.getValue()));
+        Robot r = new Robot((Integer) (jSpinner1.getValue()), (String) (jComboBox1.getSelectedItem()), (Integer) (jSpinner2.getValue()), Integer.parseInt(jTextField11.getText()), jTextField12.getText(), jTextField9.getText(), a, t, e);
+
+        if (matches.containsKey((Integer) (jSpinner1.getValue()))) {
+
+            matches.get((Integer) (jSpinner1.getValue())).setRobot(r);
+        } else {
+
+            Match m = new Match((Integer) (jSpinner1.getValue()));
             m.setRobot(r);
-            
-            matches.put((Integer)(jSpinner1.getValue()), m);
+
+            matches.put((Integer) (jSpinner1.getValue()), m);
         }
-        
+
         updateRawTable();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jMenuItem_SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_SaveActionPerformed
+        // Test to see if there is a current file, then act accordingly
+        if (currentFile != null) {
+            saveFile(currentFile);
+        } else {
+            JFileChooser jfc = new JFileChooser();
+
+            if (jfc.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
+                saveFile(jfc.getSelectedFile());
+            }
+        }
+
+    }//GEN-LAST:event_jMenuItem_SaveActionPerformed
+
+    private void jMenuItem_SaveAsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_SaveAsActionPerformed
+// Prompts the user for a file to sve location and name. then creates
+        // a VDModel with  the <cases> and <schedules> objects. The model is
+        // then saved to the disk.
+
+        JFileChooser jfc = new JFileChooser();
+
+        if (jfc.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
+            currentFile = jfc.getSelectedFile();
+            saveFile(jfc.getSelectedFile());
+
+            jMenuItem_Save.setEnabled(true);
+        }
+
+
+    }//GEN-LAST:event_jMenuItem_SaveAsActionPerformed
+
+    private void jMenuItem_OpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_OpenActionPerformed
+        // Prompts the user for a file to open location and name. then creates
+        // a matchModel with  the <matches> object saved in the file on the disk. 
+        // The model is then used to run updateRawTable.
+        JFileChooser jfc = new JFileChooser();
+        //table_cases.removeAll();
+
+        if (jfc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+            try {
+
+                File selectedFile = jfc.getSelectedFile();
+                currentFile = selectedFile;
+
+                FileInputStream fis = new FileInputStream(selectedFile);
+                ObjectInputStream ois = new ObjectInputStream(fis);
+
+                matchModel model = (matchModel) ois.readObject();
+
+                matches.clear();
+                System.out.println(selectedFile);
+
+                for (Integer key : model.getMatches().keySet()) {
+                    matches.put(key, model.getMatches().get(key));
+                }
+              
+                ois.close();
+                updateRawTable();
+                System.out.println(selectedFile);
+
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            jMenuItem_Save.setEnabled(true);
+
+        }
+    }
+
+    private void menuItem_saveActionPerformed(java.awt.event.ActionEvent evt) {
+        // Test to see if there is a current file, then act accordingly
+        if (currentFile != null) {
+            saveFile(currentFile);
+        } else {
+            JFileChooser jfc = new JFileChooser();
+
+            if (jfc.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
+                saveFile(jfc.getSelectedFile());
+            }
+        }    }//GEN-LAST:event_jMenuItem_OpenActionPerformed
 
     /**
      * @param args the command line arguments
@@ -770,6 +879,9 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem_Open;
+    private javax.swing.JMenuItem jMenuItem_Save;
+    private javax.swing.JMenuItem jMenuItem_SaveAs;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -797,17 +909,17 @@ public class MainWindow extends javax.swing.JFrame {
 
     public boolean checkSubmissions() {
         boolean turn = true;
-        
-        if ((Integer)(jSpinner1.getValue()) == 0) {
+
+        if ((Integer) (jSpinner1.getValue()) == 0) {
             jSpinner1.setBackground(Color.red);
             turn = false;
         }
-        
-        if ((Integer)(jSpinner2.getValue()) == 0) {
+
+        if ((Integer) (jSpinner2.getValue()) == 0) {
             jSpinner1.setBackground(Color.red);
             turn = false;
         }
-        
+
         if (jTextField1.getText().equals("")) {
             jTextField1.setBackground(Color.red);
             turn = false;
@@ -840,17 +952,17 @@ public class MainWindow extends javax.swing.JFrame {
             jTextField12.setBackground(Color.red);
             turn = false;
         }
-        
+
         if (turn == false) {
             return false;
         }
         return true;
     }
-    
-    public void clearHighlights () {
+
+    public void clearHighlights() {
         jSpinner1.setBackground(Color.white);
         jSpinner2.setBackground(Color.white);
-        
+
         jTextField1.setBackground(Color.white);
         jTextField11.setBackground(Color.white);
         jTextField12.setBackground(Color.white);
@@ -860,16 +972,16 @@ public class MainWindow extends javax.swing.JFrame {
         jTextField5.setBackground(Color.white);
         jTextField7.setBackground(Color.white);
     }
-    
+
     public void updateRawTable() {
-        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
-        
-        for (Integer key : matches.keySet() ){
+
+        for (Integer key : matches.keySet()) {
             // Gets each case and builds an Object[] array out of the data
             Match m = matches.get(key);
             Object[] row = new Object[5];
-            
+
             if (m.getBlue1() != null) {
                 row[0] = m.getBlue1().getMatchNumber();
                 row[1] = m.getBlue1().getTeamNumber();
@@ -879,7 +991,7 @@ public class MainWindow extends javax.swing.JFrame {
 
                 model.addRow(row);
             }
-            
+
             if (m.getBlue2() != null) {
                 row[0] = m.getBlue2().getMatchNumber();
                 row[1] = m.getBlue2().getTeamNumber();
@@ -889,7 +1001,7 @@ public class MainWindow extends javax.swing.JFrame {
 
                 model.addRow(row);
             }
-            
+
             if (m.getBlue3() != null) {
                 row[0] = m.getBlue3().getMatchNumber();
                 row[1] = m.getBlue3().getTeamNumber();
@@ -899,7 +1011,7 @@ public class MainWindow extends javax.swing.JFrame {
 
                 model.addRow(row);
             }
-            
+
             if (m.getRed1() != null) {
                 row[0] = m.getRed1().getMatchNumber();
                 row[1] = m.getRed1().getTeamNumber();
@@ -909,7 +1021,7 @@ public class MainWindow extends javax.swing.JFrame {
 
                 model.addRow(row);
             }
-            
+
             if (m.getRed2() != null) {
                 row[0] = m.getRed2().getMatchNumber();
                 row[1] = m.getRed2().getTeamNumber();
@@ -919,7 +1031,7 @@ public class MainWindow extends javax.swing.JFrame {
 
                 model.addRow(row);
             }
-            
+
             if (m.getRed3() != null) {
                 row[0] = m.getRed3().getMatchNumber();
                 row[1] = m.getRed3().getTeamNumber();
@@ -931,7 +1043,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         }
     }
-    
+
     private void loadMatchesFromFile() {
         try {
             Scanner file = new Scanner(new File("sampleData.csv"));
@@ -939,114 +1051,118 @@ public class MainWindow extends javax.swing.JFrame {
             file.nextLine();
             int i = 0;
             while (file.hasNextLine()) {
-                
+
                 Robot r;
                 Auto a;
                 TeleOp t;
                 EndGame e;
-                
-                Scanner line = new Scanner(file.nextLine()) ;                              
+
+                Scanner line = new Scanner(file.nextLine());
                 line.useDelimiter(",");
-                
-                String scoutName                    = line.next();
-                
-                int teamNumber                      = Integer.parseInt(line.next());    
-                int matchNumber                     = Integer.parseInt(line.next());
-                
-                String allianceColor                = line.next();
-                
-                int fieldPlacement                  = Integer.parseInt(line.next());
-                
-                String generalAutoBehavior          = line.next();
+
+                String scoutName = line.next();
+
+                int teamNumber = Integer.parseInt(line.next());
+                int matchNumber = Integer.parseInt(line.next());
+
+                String allianceColor = line.next();
+
+                int fieldPlacement = Integer.parseInt(line.next());
+
+                String generalAutoBehavior = line.next();
                 int ab;
                 if (generalAutoBehavior.contains("Attempted to Score")) {
                     ab = 2;
-                }
-                else if (generalAutoBehavior.contains("Attempted to Pick Up Cargo")) {
+                } else if (generalAutoBehavior.contains("Attempted to Pick Up Cargo")) {
                     ab = 3;
-                }
-                else {
+                } else {
                     ab = 1;
                 }
-                
-                int upperHubShotsMadeAUTO           = Integer.parseInt(line.next());
-                int upperHubShotsAttemptedAUTO      = Integer.parseInt(line.next());
-                int lowerHubShotsMadeAUTO           = Integer.parseInt(line.next());
-                int lowerHubShotsAttemptedAUTO      = Integer.parseInt(line.next());
-                
-                String generalTeleopBehavior        = line.next();
+
+                int upperHubShotsMadeAUTO = Integer.parseInt(line.next());
+                int upperHubShotsAttemptedAUTO = Integer.parseInt(line.next());
+                int lowerHubShotsMadeAUTO = Integer.parseInt(line.next());
+                int lowerHubShotsAttemptedAUTO = Integer.parseInt(line.next());
+
+                String generalTeleopBehavior = line.next();
                 int tb;
                 if (generalTeleopBehavior.contains("Attempted to Score")) {
                     tb = 3;
-                }
-                else if (generalTeleopBehavior.contains("Attempted to Pick Up Cargo")) {
+                } else if (generalTeleopBehavior.contains("Attempted to Pick Up Cargo")) {
                     tb = 2;
-                }
-                else {
+                } else {
                     tb = 1;
                 }
-                
-                String intakeSystem                 = line.next();
+
+                String intakeSystem = line.next();
                 int is;
                 if (intakeSystem.contains("Intake on the Robot")) {
                     is = 3;
-                }
-                else if (intakeSystem.contains("From the Human Player")) {
+                } else if (intakeSystem.contains("From the Human Player")) {
                     is = 2;
-                }
-                else {
+                } else {
                     is = 1;
                 }
-                
-                double rateIntakeperformance        = Integer.parseInt(line.next()) * 0.2;
-                double rateScoringPerformance       = Integer.parseInt(line.next()) * 0.2;
-                double rateDefensivePerformance     = Integer.parseInt(line.next()) * 0.2;
-                
-                int upperHubShotsMadeTELEOP         = Integer.parseInt(line.next());
-                int lowerHubShotsMadeTELEOP         = Integer.parseInt(line.next());
-                
-                String endgame    = line.next();
+
+                double rateIntakeperformance = Integer.parseInt(line.next()) * 0.2;
+                double rateScoringPerformance = Integer.parseInt(line.next()) * 0.2;
+                double rateDefensivePerformance = Integer.parseInt(line.next()) * 0.2;
+
+                int upperHubShotsMadeTELEOP = Integer.parseInt(line.next());
+                int lowerHubShotsMadeTELEOP = Integer.parseInt(line.next());
+
+                String endgame = line.next();
                 int eb;
                 if (endgame.contains("Didn't attempt to climb.")) {
                     eb = 0;
-                }
-                else if (endgame.contains("Attempted")) {
+                } else if (endgame.contains("Attempted")) {
                     eb = 1;
-                }
-                else if (endgame.contains("Traversal")) {
+                } else if (endgame.contains("Traversal")) {
                     eb = 5;
-                }
-                else if (endgame.contains("High Rung")) {
+                } else if (endgame.contains("High Rung")) {
                     eb = 4;
-                }
-                else if (endgame.contains("Mid Rung")) {
+                } else if (endgame.contains("Mid Rung")) {
                     eb = 3;
-                }
-                else {
+                } else {
                     eb = 2;
                 }
-                
-                String comments                     = line.next();
-                
+
+                String comments = line.next();
+
                 a = new Auto(upperHubShotsMadeAUTO, upperHubShotsAttemptedAUTO, lowerHubShotsMadeAUTO, lowerHubShotsAttemptedAUTO, ab, generalAutoBehavior.contains("Taxi"));
                 t = new TeleOp(upperHubShotsMadeTELEOP, lowerHubShotsMadeTELEOP, tb, rateIntakeperformance, rateScoringPerformance, rateDefensivePerformance, is);
                 e = new EndGame(eb);
                 r = new Robot(matchNumber, allianceColor, fieldPlacement, teamNumber, scoutName, comments, a, t, e);
-                
+
                 if (matches.containsKey(matchNumber)) {
                     matches.get(matchNumber).setRobot(r);
-                }
-                else {
+                } else {
                     Match m = new Match(matchNumber);
                     m.setRobot(r);
 
                     matches.put(matchNumber, m);
                 }
                 updateRawTable();
-            } 
-            
-        } catch(FileNotFoundException e) {
+            }
+
+        } catch (FileNotFoundException e) {
             System.out.println(e.toString());
         }
     }
+   private void saveFile(File file) {
+        try {
+                FileOutputStream fos = new FileOutputStream(file);
+                ObjectOutputStream oos = new ObjectOutputStream(fos);
+                
+                oos.writeObject(new matchModel(matches));
+                
+                oos.close();
+                
+                
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    } 
 }
