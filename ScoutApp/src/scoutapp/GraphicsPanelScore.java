@@ -96,9 +96,7 @@ public class GraphicsPanelScore extends JPanel {
         if (highestMatchScore == 0) {
             return;
         }
-        
-        //if 
-        
+                
         if (dataType == DataType.ALL) {
             //graph rectangles
             int matchRangeSize = matches.keySet().size(); 
