@@ -41,6 +41,7 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel33.setText("Team Number");
         jTextField10.setVisible(false);
         jComboBox4.setVisible(false);
+        jButton2.setVisible(false);
         
         jComboBox2ActionPerformed(null);
     }
@@ -133,6 +134,7 @@ public class MainWindow extends javax.swing.JFrame {
         jTextField10 = new javax.swing.JTextField();
         jLabel33 = new javax.swing.JLabel();
         jComboBox4 = new javax.swing.JComboBox<>();
+        jButton2 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem_Save = new javax.swing.JMenuItem();
@@ -620,12 +622,25 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
+        jTextField10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField10ActionPerformed(evt);
+            }
+        });
+
         jLabel33.setText("Team Number");
 
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Blue", "Red" }));
         jComboBox4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox4ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Search Team");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -649,9 +664,12 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton2))
                 .addGap(867, 867, 867))
         );
         jPanel3Layout.setVerticalGroup(
@@ -666,11 +684,17 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel33)
                     .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel32))
-                .addContainerGap(159, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel32))
+                        .addContainerGap(159, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         jTabbedPane3.addTab("Insights", jPanel3);
@@ -925,6 +949,7 @@ public class MainWindow extends javax.swing.JFrame {
                 jTextField10.setVisible(false);
                 jTextField10.setText("");
                 jComboBox4.setVisible(false);
+                jButton2.setVisible(false);
                 dt = GraphicsPanelScore.DataType.ALL;
                 break;
             case 1:
@@ -933,6 +958,7 @@ public class MainWindow extends javax.swing.JFrame {
                 jTextField10.setVisible(true);
                 jTextField10.setText("");
                 jComboBox4.setVisible(false);
+                jButton2.setVisible(true);
                 dt = GraphicsPanelScore.DataType.TEAM;
                 break;
             default:
@@ -941,6 +967,7 @@ public class MainWindow extends javax.swing.JFrame {
                 jTextField10.setVisible(false);
                 jTextField10.setText("");
                 jComboBox4.setVisible(true);
+                jButton2.setVisible(false);
                 dt = GraphicsPanelScore.DataType.ALLIANCE;
                 break;
         }
@@ -955,19 +982,94 @@ public class MainWindow extends javax.swing.JFrame {
         
         switch (jComboBox3.getSelectedIndex()){
             case 1 -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), dt, GraphicsPanelScore.ScoreType.AUTO, ac);
-            case 2 -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), dt, GraphicsPanelScore.ScoreType.END_GAME, ac);
-            case 3 -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), dt, GraphicsPanelScore.ScoreType.TELEOP, ac);
+            case 2 -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), dt, GraphicsPanelScore.ScoreType.TELEOP, ac);
+            case 3 -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), dt, GraphicsPanelScore.ScoreType.END_GAME, ac);
             default -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), dt, GraphicsPanelScore.ScoreType.ALL_POINTS, ac);
         }
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
-        jComboBox2ActionPerformed(null);
+        GraphicsPanelScore.DataType dt;
+        switch (jComboBox2.getSelectedIndex()) {
+            case 0:
+                jLabel33.setVisible(false);
+                jLabel33.setText("Team Number");
+                jTextField10.setVisible(false);
+                jComboBox4.setVisible(false);
+                jButton2.setVisible(false);
+                dt = GraphicsPanelScore.DataType.ALL;
+                break;
+            case 1:
+                jLabel33.setVisible(true);
+                jLabel33.setText("Team Number");
+                jTextField10.setVisible(true);
+                jComboBox4.setVisible(false);
+                jButton2.setVisible(true);
+                dt = GraphicsPanelScore.DataType.TEAM;
+                break;
+            default:
+                jLabel33.setVisible(true);
+                jLabel33.setText("Alliance Color");
+                jTextField10.setVisible(false);
+                jComboBox4.setVisible(true);
+                jButton2.setVisible(false);
+                dt = GraphicsPanelScore.DataType.ALLIANCE;
+                break;
+        }
+        
+        Match.AllianceColor ac;
+        if (jComboBox4.getSelectedIndex() != 0) {
+            ac = Match.AllianceColor.RED;
+        }
+        else {
+            ac = Match.AllianceColor.BLUE;
+        }
+        
+        switch (jComboBox3.getSelectedIndex()){
+            case 1 -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), dt, GraphicsPanelScore.ScoreType.AUTO, ac);
+            case 2 -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), dt, GraphicsPanelScore.ScoreType.TELEOP, ac); 
+            case 3 -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), dt, GraphicsPanelScore.ScoreType.END_GAME, ac);
+            default -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), dt, GraphicsPanelScore.ScoreType.ALL_POINTS, ac);
+        }
     }//GEN-LAST:event_jComboBox3ActionPerformed
 
     private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
         jComboBox2ActionPerformed(null);
     }//GEN-LAST:event_jComboBox4ActionPerformed
+
+    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
+        Match.AllianceColor ac;
+        if (jComboBox4.getSelectedIndex() != 0) {
+            ac = Match.AllianceColor.RED;
+        }
+        else {
+            ac = Match.AllianceColor.BLUE;
+        }
+        
+        switch (jComboBox3.getSelectedIndex()){
+            case 1 -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), GraphicsPanelScore.DataType.TEAM, GraphicsPanelScore.ScoreType.AUTO, ac);
+            case 2 -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), GraphicsPanelScore.DataType.TEAM, GraphicsPanelScore.ScoreType.TELEOP, ac);
+            case 3 -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), GraphicsPanelScore.DataType.TEAM, GraphicsPanelScore.ScoreType.END_GAME, ac);
+            default -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), GraphicsPanelScore.DataType.TEAM, GraphicsPanelScore.ScoreType.ALL_POINTS, ac);
+        }
+    }//GEN-LAST:event_jTextField10ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Match.AllianceColor ac;
+        if (jComboBox4.getSelectedIndex() != 0) {
+            ac = Match.AllianceColor.RED;
+        }
+        else {
+            ac = Match.AllianceColor.BLUE;
+        }
+        
+        switch (jComboBox3.getSelectedIndex()){
+            case 1 -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), GraphicsPanelScore.DataType.TEAM, GraphicsPanelScore.ScoreType.AUTO, ac);
+            case 2 -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), GraphicsPanelScore.DataType.TEAM, GraphicsPanelScore.ScoreType.END_GAME, ac);
+            case 3 -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), GraphicsPanelScore.DataType.TEAM, GraphicsPanelScore.ScoreType.TELEOP, ac);
+            default -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), GraphicsPanelScore.DataType.TEAM, GraphicsPanelScore.ScoreType.ALL_POINTS, ac);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1006,6 +1108,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox10;
     private javax.swing.JCheckBox jCheckBox11;
