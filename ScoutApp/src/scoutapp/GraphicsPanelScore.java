@@ -99,17 +99,7 @@ public class GraphicsPanelScore extends JPanel {
         if (highestMatchScore == 0) {
             return;
         }
-        
-//        Match.AllianceColor ac;        
-//        if (dataType == DataType.ALL) {
-//            ac = Match.AllianceColor.ALL;
-//        }
-//        else if (dataType == DataType.ALLIANCE) {
-//            ac = 
-//        }
-//        else {
-//            
-//        }
+ 
         //graph rectangles
         int matchRangeSize = matches.keySet().size(); 
         int rectangleWidth = (int)((double)usableWidth / matchRangeSize);
@@ -137,7 +127,16 @@ public class GraphicsPanelScore extends JPanel {
             }
 
             int colorSteps = 255 / matchRangeSize;
-            Color currentColor = new Color(colorSteps * i, 0, 0);
+            Color currentColor;
+            if (allianceColor == Match.AllianceColor.ALL){
+               currentColor = new Color(colorSteps * i, 0, colorSteps * i); 
+            }
+            else if (allianceColor == Match.AllianceColor.RED) {
+                currentColor = new Color(colorSteps * i, 0, 0);
+            }
+            else {
+                currentColor = new Color(0, 0, colorSteps * i);
+            }   
             g.setColor(currentColor);
 
             int x = yAxisWidth + (int)(((double)i / matches.keySet().size()) * usableWidth);
@@ -146,7 +145,16 @@ public class GraphicsPanelScore extends JPanel {
             int inHeight = (int)(((double)score / highestMatchScore) * usableHeight);
             g.fillRect(x, y, inWidth, inHeight);
 
-            g.setColor(Color.BLUE);
+            if (allianceColor == Match.AllianceColor.ALL){
+               g.setColor(Color.RED); 
+            }
+            else if (allianceColor == Match.AllianceColor.RED) {
+                g.setColor(Color.BLUE);
+            }
+            else {
+                g.setColor(Color.RED);
+            }
+            
             if (i % 3 == 0) {
                 int inX1 = previousX;
                 int inY1 = previousY;
