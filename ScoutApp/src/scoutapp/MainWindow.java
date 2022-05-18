@@ -6,6 +6,9 @@
 package scoutapp;
 
 import java.awt.Color;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 import java.util.TreeMap;
 import javax.swing.table.DefaultTableModel;
 
@@ -24,6 +27,7 @@ public class MainWindow extends javax.swing.JFrame {
     public MainWindow() {
         initComponents();
         matches = new TreeMap<Integer, Match>();
+        loadMatchesFromFile();
     }
 
     /**
@@ -925,6 +929,124 @@ public class MainWindow extends javax.swing.JFrame {
 
                 model.addRow(row);
             }
+        }
+    }
+    
+    private void loadMatchesFromFile() {
+        try {
+            Scanner file = new Scanner(new File("sampleData.csv"));
+            System.out.println("opening csv");
+            file.nextLine();
+            int i = 0;
+            while (file.hasNextLine()) {
+                
+                Robot r;
+                Auto a;
+                TeleOp t;
+                EndGame e;
+                
+                Scanner line = new Scanner(file.nextLine()) ;                              
+                line.useDelimiter(",");
+                
+                String scoutName                    = line.next();
+                
+                int teamNumber                      = Integer.parseInt(line.next());    
+                int matchNumber                     = Integer.parseInt(line.next());
+                
+                String allianceColor                = line.next();
+                
+                int fieldPlacement                  = Integer.parseInt(line.next());
+                
+                String generalAutoBehavior          = line.next();
+                int ab;
+                if (generalAutoBehavior.contains("Attempted to Score")) {
+                    ab = 2;
+                }
+                else if (generalAutoBehavior.contains("Attempted to Pick Up Cargo")) {
+                    ab = 3;
+                }
+                else {
+                    ab = 1;
+                }
+                
+                int upperHubShotsMadeAUTO           = Integer.parseInt(line.next());
+                int upperHubShotsAttemptedAUTO      = Integer.parseInt(line.next());
+                int lowerHubShotsMadeAUTO           = Integer.parseInt(line.next());
+                int lowerHubShotsAttemptedAUTO      = Integer.parseInt(line.next());
+                
+                String generalTeleopBehavior        = line.next();
+                int tb;
+                if (generalTeleopBehavior.contains("Attempted to Score")) {
+                    tb = 3;
+                }
+                else if (generalTeleopBehavior.contains("Attempted to Pick Up Cargo")) {
+                    tb = 2;
+                }
+                else {
+                    tb = 1;
+                }
+                
+                String intakeSystem                 = line.next();
+                int is;
+                if (intakeSystem.contains("Intake on the Robot")) {
+                    is = 3;
+                }
+                else if (intakeSystem.contains("From the Human Player")) {
+                    is = 2;
+                }
+                else {
+                    is = 1;
+                }
+                
+                double rateIntakeperformance        = Integer.parseInt(line.next()) * 0.2;
+                double rateScoringPerformance       = Integer.parseInt(line.next()) * 0.2;
+                double rateDefensivePerformance     = Integer.parseInt(line.next()) * 0.2;
+                
+                int upperHubShotsMadeTELEOP         = Integer.parseInt(line.next());
+                int lowerHubShotsMadeTELEOP         = Integer.parseInt(line.next());
+                
+                String endgame    = line.next();
+                int eb;
+                if (endgame.contains("Didn't attempt to climb.")) {
+                    eb = 0;
+                }
+                else if (endgame.contains("Attempted")) {
+                    eb = 1;
+                }
+                else if (endgame.contains("Traversal")) {
+                    eb = 5;
+                }
+                else if (endgame.contains("High Rung")) {
+                    eb = 4;
+                }
+                else if (endgame.contains("Mid Rung")) {
+                    eb = 3;
+                }
+                else {
+                    eb = 2;
+                }
+                
+                String comments                     = line.next();
+                
+                a = new Auto(upperHubShotsMadeAUTO, upperHubShotsAttemptedAUTO, lowerHubShotsMadeAUTO, lowerHubShotsAttemptedAUTO, ab, generalAutoBehavior.contains("Taxi"));
+                t = new TeleOp(upperHubShotsMadeTELEOP, lowerHubShotsMadeTELEOP, tb, rateIntakeperformance, rateScoringPerformance, rateDefensivePerformance, is);
+                e = new EndGame(eb);
+                r = new Robot(matchNumber, allianceColor, fieldPlacement, teamNumber, scoutName, comments, a, t, e);
+                
+                if (matches.containsKey(matchNumber)) {
+                    matches.get(matchNumber).setRobot(r);
+                }
+                else {
+                    Match m = new Match(matchNumber);
+                    m.setRobot(r);
+
+                    matches.put(matchNumber, m);
+                }
+                updateRawTable();
+            } 
+            
+        } catch(FileNotFoundException e) {
+            System.out.println(e.toString());
         }
     }
 }
