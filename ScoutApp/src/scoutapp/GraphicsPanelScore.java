@@ -45,8 +45,6 @@ public class GraphicsPanelScore extends JPanel {
         this.scoreType = st;
         this.dataType = dt;
         this.teamNumber = team;
-        
-        //if (st )
         this.allianceColor = ac;
         
         // Call the paint90, paintComponent() int order to update the panel conetent
@@ -81,16 +79,16 @@ public class GraphicsPanelScore extends JPanel {
         int highestMatchScore = 0;
         for (int key : matches.keySet()) {
             if (scoreType == ScoreType.ALL_POINTS) {
-                    highestMatchScore = Integer.max(highestMatchScore, highestMatchScore = matches.get(key).getMatchScore(Match.AllianceColor.ALL));
+                    highestMatchScore = Integer.max(highestMatchScore, matches.get(key).getMatchScore(Match.AllianceColor.ALL));
                 }
                 else if (scoreType == ScoreType.AUTO) {
-                    highestMatchScore = Integer.max(highestMatchScore, highestMatchScore = matches.get(key).getMatchAutoScore(Match.AllianceColor.ALL));
+                    highestMatchScore = Integer.max(highestMatchScore, matches.get(key).getMatchAutoScore(Match.AllianceColor.ALL));
                 }
                 else if (scoreType == ScoreType.TELEOP) {
-                    highestMatchScore = Integer.max(highestMatchScore, highestMatchScore = matches.get(key).getMatchTeleOpScore(Match.AllianceColor.ALL));
+                    highestMatchScore = Integer.max(highestMatchScore, matches.get(key).getMatchTeleOpScore(Match.AllianceColor.ALL));
                 }
                 else {
-                    highestMatchScore = Integer.max(highestMatchScore, highestMatchScore = matches.get(key).getMatchEndGameScore(Match.AllianceColor.ALL));
+                    highestMatchScore = Integer.max(highestMatchScore, matches.get(key).getMatchEndGameScore(Match.AllianceColor.ALL));
                 }
         }
         if (highestMatchScore == 0) {
@@ -147,6 +145,24 @@ public class GraphicsPanelScore extends JPanel {
                     previousX = inX2;
                     previousY = inY2;
                 }
+                
+               // add axis titles
+               Color black = new Color(0, 0, 0);
+               g.setColor(black);
+
+               int xAxisTitleWidth = g.getFontMetrics().stringWidth("Match");
+               int titleHeight = g.getFontMetrics().getHeight();
+
+               //xAxis
+               g.drawString("Match", ((usableWidth - xAxisTitleWidth) / 2) + yAxisWidth, xAxisHeight + ((borderHeight - titleHeight) / 2 ));
+
+               String startMatch = Integer.toString(matches.firstKey());
+               g.drawString(startMatch, yAxisWidth - (g.getFontMetrics().stringWidth(startMatch) / 2) /*+ (widthLoss / 2)*/, xAxisHeight + titleHeight);
+
+               String endMatch = Integer.toString(matches.lastKey());
+               g.drawString(endMatch, yAxisWidth + usableWidth - (g.getFontMetrics().stringWidth(endMatch) / 2)/* - (widthLoss / 2)*/, xAxisHeight + titleHeight);
+
+               g.drawString(Integer.toString(highestMatchScore), yAxisWidth - g.getFontMetrics().stringWidth(Integer.toString(highestMatchScore)) - 4, borderHeight + (titleHeight / 2));
 
             }
         }
