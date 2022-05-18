@@ -5,11 +5,13 @@
  */
 package scoutapp;
 
+import java.io.Serializable;
+
 /**
  *
  * @author bjtex
  */
-public class Robot {
+public class Robot implements Serializable{
     private int score;
     
     private int matchNumber;

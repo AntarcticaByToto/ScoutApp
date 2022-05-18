@@ -5,11 +5,13 @@
  */
 package scoutapp;
 
+import java.io.Serializable;
+
 /**
  *
  * @author bjtex
  */
-public class TeleOp {
+public class TeleOp implements Serializable {
     
     private int teleOpScore;
 

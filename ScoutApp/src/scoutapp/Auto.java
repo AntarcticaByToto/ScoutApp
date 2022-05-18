@@ -5,11 +5,13 @@
  */
 package scoutapp;
 
+import java.io.Serializable;
+
 /**
  *
  * @author bjtex
  */
-public class Auto {
+public class Auto implements Serializable{
     
     private int autoScore;
     

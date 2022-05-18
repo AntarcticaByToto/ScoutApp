@@ -5,11 +5,13 @@
  */
 package scoutapp;
 
+import java.io.Serializable;
+
 /**
  *
  * @author bjtex
  */
-public class Match {
+public class Match implements Serializable{
     private Robot red1;
     private Robot red2;
     private Robot red3;
