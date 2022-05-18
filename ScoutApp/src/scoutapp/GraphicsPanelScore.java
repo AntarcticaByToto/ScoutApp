@@ -21,7 +21,7 @@ import javax.swing.JPanel;
 public class GraphicsPanelScore extends JPanel {
     
     private TreeMap<Integer, Match> matches;
-    private String teamNumber;
+    private int teamNumber;
     private DataType dataType;
     private ScoreType scoreType;
     private Match.AllianceColor allianceColor;
@@ -44,7 +44,13 @@ public class GraphicsPanelScore extends JPanel {
         this.matches = map;
         this.scoreType = st;
         this.dataType = dt;
-        this.teamNumber = team;
+        try {
+            this.teamNumber = Integer.parseInt(team);
+        }
+        catch (NumberFormatException e) {
+            this.teamNumber = 0;
+        }
+        
         if (dt == DataType.ALL || dt == DataType.TEAM) {
             this.allianceColor = Match.AllianceColor.ALL;
         }
@@ -62,6 +68,31 @@ public class GraphicsPanelScore extends JPanel {
         
         if (matches == null) {
             return;
+        }
+        
+        TreeMap<Integer, Robot> robots = new TreeMap<Integer, Robot>();
+        
+        if (dataType == DataType.TEAM) {
+            for (int key : matches.keySet()) {
+                if (matches.get(key).getBlue1() != null && matches.get(key).getBlue1().getTeamNumber() == teamNumber) {
+                    robots.put(key, matches.get(key).getBlue1());
+                }
+                else if (matches.get(key).getBlue2() != null && matches.get(key).getBlue2().getTeamNumber() == teamNumber) {
+                    robots.put(key, matches.get(key).getBlue2());
+                }
+                else if (matches.get(key).getBlue3() != null && matches.get(key).getBlue3().getTeamNumber() == teamNumber) {
+                    robots.put(key, matches.get(key).getBlue3());
+                }
+                else if (matches.get(key).getRed1() != null && matches.get(key).getRed1().getTeamNumber() == teamNumber) {
+                    robots.put(key, matches.get(key).getRed1());
+                }
+                else if (matches.get(key).getRed2() != null && matches.get(key).getRed2().getTeamNumber() == teamNumber) {
+                    robots.put(key, matches.get(key).getRed2());
+                }
+                else if (matches.get(key).getRed3() != null && matches.get(key).getRed3().getTeamNumber() == teamNumber) {
+                    robots.put(key, matches.get(key).getRed3());
+                }
+            }
         }
         
         int height = g.getClipBounds().height;
@@ -82,9 +113,10 @@ public class GraphicsPanelScore extends JPanel {
         g.drawLine(yAxisWidth, xAxisHeight, width - borderWidth, xAxisHeight);      // X Axis
         
         int highestMatchScore = 0;
-        for (int key : matches.keySet()) {
-            if (scoreType == ScoreType.ALL_POINTS) {
-                    highestMatchScore = Integer.max(highestMatchScore, matches.get(key).getMatchScore(allianceColor));
+        if (dataType == DataType.ALL || dataType == DataType.ALLIANCE) {
+            for (int key : matches.keySet()) {
+                if (scoreType == ScoreType.ALL_POINTS) {
+                        highestMatchScore = Integer.max(highestMatchScore, matches.get(key).getMatchScore(allianceColor));
                 }
                 else if (scoreType == ScoreType.AUTO) {
                     highestMatchScore = Integer.max(highestMatchScore, matches.get(key).getMatchAutoScore(allianceColor));
@@ -95,13 +127,38 @@ public class GraphicsPanelScore extends JPanel {
                 else {
                     highestMatchScore = Integer.max(highestMatchScore, matches.get(key).getMatchEndGameScore(allianceColor));
                 }
+            }
         }
+        else {
+            for (int key : robots.keySet()) {
+                if (scoreType == ScoreType.ALL_POINTS) {
+                        highestMatchScore = Integer.max(highestMatchScore, robots.get(key).getScore());
+                }
+                else if (scoreType == ScoreType.AUTO) {
+                    highestMatchScore = Integer.max(highestMatchScore, robots.get(key).getAuto().getScore());
+                }
+                else if (scoreType == ScoreType.TELEOP) {
+                    highestMatchScore = Integer.max(highestMatchScore, robots.get(key).getTeleop().getScore());
+                }
+                else {
+                    highestMatchScore = Integer.max(highestMatchScore, robots.get(key).getEndgame().getScore());
+                }
+            }
+        }
+        
         if (highestMatchScore == 0) {
             return;
         }
  
         //graph rectangles
-        int matchRangeSize = matches.keySet().size(); 
+        int matchRangeSize;
+        if (dataType == DataType.ALL || dataType == DataType.ALLIANCE) {
+            matchRangeSize = matches.keySet().size();
+        } 
+        else {
+            matchRangeSize = robots.keySet().size();
+        }
+        
         int rectangleWidth = (int)((double)usableWidth / matchRangeSize);
         int rectangleHeight = (int)((double)usableHeight / highestMatchScore);
 
@@ -113,18 +170,35 @@ public class GraphicsPanelScore extends JPanel {
         int previousY = xAxisHeight;
         for (int i=0; i < matchRangeSize; i++) {
             int score;
-            if (scoreType == ScoreType.ALL_POINTS) {
-                score = matches.get(matches.keySet().toArray()[i]).getMatchScore(allianceColor);
-            }
-            else if (scoreType == ScoreType.AUTO) {
-                score = matches.get(matches.keySet().toArray()[i]).getMatchAutoScore(allianceColor);
-            }
-            else if (scoreType == ScoreType.TELEOP) {
-                score = matches.get(matches.keySet().toArray()[i]).getMatchTeleOpScore(allianceColor);
+            if (dataType == DataType.ALL || dataType == DataType.ALLIANCE) {
+               if (scoreType == ScoreType.ALL_POINTS) {
+                    score = matches.get(matches.keySet().toArray()[i]).getMatchScore(allianceColor);
+                }
+                else if (scoreType == ScoreType.AUTO) {
+                    score = matches.get(matches.keySet().toArray()[i]).getMatchAutoScore(allianceColor);
+                }
+                else if (scoreType == ScoreType.TELEOP) {
+                    score = matches.get(matches.keySet().toArray()[i]).getMatchTeleOpScore(allianceColor);
+                }
+                else {
+                    score = matches.get(matches.keySet().toArray()[i]).getMatchEndGameScore(allianceColor);
+                } 
             }
             else {
-                score = matches.get(matches.keySet().toArray()[i]).getMatchEndGameScore(allianceColor);
+                if (scoreType == ScoreType.ALL_POINTS) {
+                    score = robots.get(robots.keySet().toArray()[i]).getScore();
+                }
+                else if (scoreType == ScoreType.AUTO) {
+                    score = robots.get(robots.keySet().toArray()[i]).getAuto().getScore();
+                }
+                else if (scoreType == ScoreType.TELEOP) {
+                    score = robots.get(robots.keySet().toArray()[i]).getTeleop().getScore();;
+                }
+                else {
+                    score = robots.get(robots.keySet().toArray()[i]).getEndgame().getScore();
+                }
             }
+            
 
             int colorSteps = 255 / matchRangeSize;
             Color currentColor;
@@ -139,7 +213,13 @@ public class GraphicsPanelScore extends JPanel {
             }   
             g.setColor(currentColor);
 
-            int x = yAxisWidth + (int)(((double)i / matches.keySet().size()) * usableWidth);
+            int x;
+            if (dataType == DataType.ALL || dataType == DataType.ALLIANCE) {
+                x = yAxisWidth + (int)(((double)i / matches.keySet().size()) * usableWidth);
+            }
+            else {
+                x = yAxisWidth + (int)(((double)i / robots.keySet().size()) * usableWidth);
+            }
             int y = xAxisHeight - (int)(((double)score / highestMatchScore) * usableHeight);
             int inWidth = rectangleWidth;
             int inHeight = (int)(((double)score / highestMatchScore) * usableHeight);
@@ -155,7 +235,15 @@ public class GraphicsPanelScore extends JPanel {
                 g.setColor(Color.RED);
             }
             
-            if (i % 3 == 0) {
+            int divider;
+            if (dataType == DataType.ALL || dataType == DataType.ALLIANCE) {
+                divider = 3;
+            }
+            else {
+                divider = 1;
+            }
+            
+            if (i % divider == 0) {
                 int inX1 = previousX;
                 int inY1 = previousY;
                 int inX2 = x;
