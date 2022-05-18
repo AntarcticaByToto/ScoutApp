@@ -21,6 +21,12 @@ public class Match implements Serializable{
     private Robot blue3;
     
     private int matchNumber;
+    
+    public enum AllianceColor{
+        RED,
+        BLUE,
+        ALL
+    }
 
     public Match(int matchNumber) {
         this.matchNumber = matchNumber;
@@ -84,25 +90,110 @@ public class Match implements Serializable{
         return matchNumber;
     }
     
-    public int getMatchScore() {
+    public int getMatchScore(AllianceColor ac) {
         int score = 0;
-        if (red1 != null) {
-            score += red1.getScore();
+        if (ac != AllianceColor.BLUE) {
+            if (red1 != null) {
+                score += red1.getScore();
+            }
+            if (red2 != null) {
+                score += red2.getScore();
+            }
+            if (red3 != null) {
+                score += red3.getScore();
+            }
         }
-        if (red2 != null) {
-            score += red2.getScore();
+        if (ac != AllianceColor.RED) {
+            if (blue1 != null) {
+                score += blue1.getScore();
+            }
+            if (blue2 != null) {
+                score += blue2.getScore();
+            }
+            if (blue3 != null) {
+                score += blue3.getScore();
+            }
         }
-        if (red3 != null) {
-            score += red3.getScore();
+        return score; 
+    }
+    
+    public int getMatchAutoScore(AllianceColor ac) {
+        int score = 0;
+        if (ac != AllianceColor.BLUE) {
+            if (red1 != null) {
+                score += red1.getAuto().getScore();
+            }
+            if (red2 != null) {
+                score += red2.getAuto().getScore();
+            }
+            if (red3 != null) {
+                score += red3.getAuto().getScore();
+            }
         }
-        if (blue1 != null) {
-            score += blue1.getScore();
+        if (ac != AllianceColor.RED) {
+            if (blue1 != null) {
+                score += blue1.getAuto().getScore();
+            }
+            if (blue2 != null) {
+                score += blue2.getAuto().getScore();
+            }
+            if (blue3 != null) {
+                score += blue3.getAuto().getScore();
+            }
         }
-        if (blue2 != null) {
-            score += blue2.getScore();
+        return score; 
+    }
+    
+    public int getMatchTeleOpScore(AllianceColor ac) {
+        int score = 0;
+        if (ac != AllianceColor.BLUE) {
+            if (red1 != null) {
+                score += red1.getTeleop().getScore();
+            }
+            if (red2 != null) {
+                score += red2.getTeleop().getScore();
+            }
+            if (red3 != null) {
+                score += red3.getTeleop().getScore();
+            }
         }
-        if (blue3 != null) {
-            score += blue3.getScore();
+        if (ac != AllianceColor.RED) {
+            if (blue1 != null) {
+                score += blue1.getTeleop().getScore();
+            }
+            if (blue2 != null) {
+                score += blue2.getTeleop().getScore();
+            }
+            if (blue3 != null) {
+                score += blue3.getTeleop().getScore();
+            }
+        }
+        return score; 
+    }
+    
+    public int getMatchEndGameScore(AllianceColor ac) {
+        int score = 0;
+        if (ac != AllianceColor.BLUE) {
+            if (red1 != null) {
+                score += red1.getEndgame().getScore();
+            }
+            if (red2 != null) {
+                score += red2.getEndgame().getScore();
+            }
+            if (red3 != null) {
+                score += red3.getEndgame().getScore();
+            }
+        }
+        if (ac != AllianceColor.RED) {
+            if (blue1 != null) {
+                score += blue1.getEndgame().getScore();
+            }
+            if (blue2 != null) {
+                score += blue2.getEndgame().getScore();
+            }
+            if (blue3 != null) {
+                score += blue3.getEndgame().getScore();
+            }
         }
         return score; 
     }

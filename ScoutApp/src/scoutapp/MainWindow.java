@@ -615,6 +615,11 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel32.setText("Display Data Type");
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Total Score", "Auto", "TeleOp", "End Game" }));
+        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox3ActionPerformed(evt);
+            }
+        });
 
         jLabel33.setText("Team Number");
 
@@ -936,12 +941,12 @@ public class MainWindow extends javax.swing.JFrame {
                 break;
         }
         
-        GraphicsPanelScore.AllianceColor ac;
+        Match.AllianceColor ac;
         if (jComboBox4.getSelectedIndex() != 0) {
-            ac = GraphicsPanelScore.AllianceColor.RED;
+            ac = Match.AllianceColor.RED;
         }
         else {
-            ac = GraphicsPanelScore.AllianceColor.BLUE;
+            ac = Match.AllianceColor.BLUE;
         }
         
         switch (jComboBox3.getSelectedIndex()){
@@ -951,6 +956,10 @@ public class MainWindow extends javax.swing.JFrame {
             default -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), dt, GraphicsPanelScore.ScoreType.ALL_POINTS, ac);
         }
     }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+        jComboBox2ActionPerformed(null);
+    }//GEN-LAST:event_jComboBox3ActionPerformed
 
     /**
      * @param args the command line arguments
