@@ -24,7 +24,7 @@ public class GraphicsPanelScore extends JPanel {
     private String teamNumber;
     private DataType dataType;
     private ScoreType scoreType;
-    private AllianceColor allianceColor;
+    private Match.AllianceColor allianceColor;
     
     public enum DataType{
         ALLIANCE,
@@ -38,18 +38,15 @@ public class GraphicsPanelScore extends JPanel {
         AUTO,
         TELEOP
     }
-    
-    public enum AllianceColor{
-        RED,
-        BLUE
-    }
 
-    public void paintData(TreeMap<Integer, Match> map, String team, DataType dt, ScoreType st, AllianceColor ac) {
+    public void paintData(TreeMap<Integer, Match> map, String team, DataType dt, ScoreType st, Match.AllianceColor ac) {
         
         this.matches = map;
         this.scoreType = st;
         this.dataType = dt;
         this.teamNumber = team;
+        
+        //if (st )
         this.allianceColor = ac;
         
         // Call the paint90, paintComponent() int order to update the panel conetent
@@ -83,11 +80,24 @@ public class GraphicsPanelScore extends JPanel {
         
         int highestMatchScore = 0;
         for (int key : matches.keySet()) {
-            highestMatchScore = Integer.max(highestMatchScore, matches.get(key).getMatchScore());
+            if (scoreType == ScoreType.ALL_POINTS) {
+                    highestMatchScore = Integer.max(highestMatchScore, highestMatchScore = matches.get(key).getMatchScore(Match.AllianceColor.ALL));
+                }
+                else if (scoreType == ScoreType.AUTO) {
+                    highestMatchScore = Integer.max(highestMatchScore, highestMatchScore = matches.get(key).getMatchAutoScore(Match.AllianceColor.ALL));
+                }
+                else if (scoreType == ScoreType.TELEOP) {
+                    highestMatchScore = Integer.max(highestMatchScore, highestMatchScore = matches.get(key).getMatchTeleOpScore(Match.AllianceColor.ALL));
+                }
+                else {
+                    highestMatchScore = Integer.max(highestMatchScore, highestMatchScore = matches.get(key).getMatchEndGameScore(Match.AllianceColor.ALL));
+                }
         }
         if (highestMatchScore == 0) {
             return;
         }
+        
+        //if 
         
         if (dataType == DataType.ALL) {
             //graph rectangles
@@ -102,8 +112,20 @@ public class GraphicsPanelScore extends JPanel {
             int previousX = yAxisWidth;
             int previousY = xAxisHeight;
             for (int i=0; i < matchRangeSize; i++) {
-                int score = matches.get(matches.keySet().toArray()[i]).getMatchScore();
-
+                int score;
+                if (scoreType == ScoreType.ALL_POINTS) {
+                    score = matches.get(matches.keySet().toArray()[i]).getMatchScore(Match.AllianceColor.ALL);
+                }
+                else if (scoreType == ScoreType.AUTO) {
+                    score = matches.get(matches.keySet().toArray()[i]).getMatchAutoScore(Match.AllianceColor.ALL);
+                }
+                else if (scoreType == ScoreType.TELEOP) {
+                    score = matches.get(matches.keySet().toArray()[i]).getMatchTeleOpScore(Match.AllianceColor.ALL);
+                }
+                else {
+                    score = matches.get(matches.keySet().toArray()[i]).getMatchEndGameScore(Match.AllianceColor.ALL);
+                }
+                
                 int colorSteps = 255 / matchRangeSize;
                 Color currentColor = new Color(colorSteps * i, 0, 0);
                 g.setColor(currentColor);
