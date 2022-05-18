@@ -5,11 +5,13 @@
  */
 package scoutapp;
 
+import java.io.Serializable;
+
 /**
  *
  * @author bjtex
  */
-public class EndGame {
+public class EndGame implements Serializable{
     
     private int endGameScore;
     
