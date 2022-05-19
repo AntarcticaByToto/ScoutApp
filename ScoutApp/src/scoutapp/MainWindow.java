@@ -13,6 +13,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.TreeMap;
 import java.util.logging.Level;
@@ -35,7 +36,7 @@ public class MainWindow extends javax.swing.JFrame {
     public MainWindow() {
         initComponents();
         matches = new TreeMap<Integer, Match>();
-        //loadMatchesFromFile();
+        loadMatchesFromFile();
         jMenuItem_Save.setEnabled(false);
         jLabel33.setVisible(false);
         jLabel33.setText("Team Number");
@@ -135,6 +136,13 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel33 = new javax.swing.JLabel();
         jComboBox4 = new javax.swing.JComboBox<>();
         jButton2 = new javax.swing.JButton();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem_Save = new javax.swing.JMenuItem();
@@ -644,33 +652,89 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
+        jLabel34.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel34.setText("Top 10 Highest Match Scores");
+
+        jLabel35.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel35.setText("Top 10 Highest Average Match Scores");
+
+        jLabel36.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel36.setText("Top 10 Highest Average Scoring Performances");
+
+        jLabel37.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel37.setText("Top 10 Highest Average Intake Ratings");
+
+        jLabel38.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel38.setText("Top 10 Highest Average Defense Ratings");
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Match", "Total Score", "Red 1", "Red 2", "Red 3", "Blue 1", "Blue 2", "Blue 3"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
+        if (jTable2.getColumnModel().getColumnCount() > 0) {
+            jTable2.getColumnModel().getColumn(0).setPreferredWidth(20);
+            jTable2.getColumnModel().getColumn(1).setPreferredWidth(60);
+        }
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(826, 826, 826))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBox2, 0, 118, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton2))))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton2))
-                .addGap(867, 867, 867))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel37))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addComponent(jLabel38))
+                            .addComponent(jLabel36)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(456, 456, 456)
+                                .addComponent(jLabel35))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 875, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(184, 184, 184))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(295, 295, 295)
+                        .addComponent(jLabel34)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -695,6 +759,20 @@ public class MainWindow extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jLabel34)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel35)
+                .addGap(27, 27, 27)
+                .addComponent(jLabel37)
+                .addGap(44, 44, 44)
+                .addComponent(jLabel36)
+                .addGap(104, 104, 104)
+                .addComponent(jLabel38)
+                .addGap(77, 77, 77))
         );
 
         jTabbedPane3.addTab("Insights", jPanel3);
@@ -1156,6 +1234,11 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1174,6 +1257,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSlider jSlider1;
     private javax.swing.JSlider jSlider2;
     private javax.swing.JSlider jSlider3;
@@ -1181,6 +1265,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JSpinner jSpinner2;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
@@ -1330,6 +1415,99 @@ public class MainWindow extends javax.swing.JFrame {
                 model.addRow(row);
             }
         }
+        
+        updateHeighestTables();
+    }
+    
+    public void updateHeighestTables() {
+        updateHeighestScoreTable();
+        updateHeighestAvgScoreTable();
+        updateHeighestIntakeTable();
+        updateHeighestScoringPerfomanceTable();
+        updateHeighestDefenseTable();
+    }
+    
+    public void updateHeighestScoreTable() {
+        int[] topTen = new int[10];
+        
+        TreeMap<Integer, Match> matchesCopy = new TreeMap<>();
+        matchesCopy.putAll(matches);
+        
+        for (int i = 0; i < 10; i++) {
+            int heighestMatchScore = 0;
+            int heighestMatchScoreKey = 0;
+            for (int key : matchesCopy.keySet()) {
+                if (matchesCopy.get(key).getMatchScore(Match.AllianceColor.ALL) > heighestMatchScore) {
+                    heighestMatchScore = matchesCopy.get(key).getMatchScore(Match.AllianceColor.ALL);
+                    heighestMatchScoreKey = key;
+                }
+            }
+            topTen[i] = heighestMatchScoreKey;
+            matchesCopy.remove(heighestMatchScoreKey);
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+        model.setRowCount(0);
+        
+        for (int key : topTen) {
+            Object[] row = new Object[8];
+            
+            row[0] = key;
+            
+            if (matches.get(key).getMatchScore(Match.AllianceColor.BLUE) > matches.get(key).getMatchScore(Match.AllianceColor.RED)) {
+                row[1] = "(" + matches.get(key).getMatchScore(Match.AllianceColor.ALL) + ") BLUE: " + matches.get(key).getMatchScore(Match.AllianceColor.BLUE);
+            }
+            else {
+                row[1] = "(" + matches.get(key).getMatchScore(Match.AllianceColor.ALL) + ") RED: " + matches.get(key).getMatchScore(Match.AllianceColor.RED);
+            }
+            
+            row[2] = "(Team " + matches.get(key).getRed1().getTeamNumber() + "): " + matches.get(key).getRed1().getScore();
+            row[3] = "(Team " + matches.get(key).getRed2().getTeamNumber() + "): " + matches.get(key).getRed2().getScore();
+            row[4] = "(Team " + matches.get(key).getRed3().getTeamNumber() + "): " + matches.get(key).getRed3().getScore();
+            row[5] = "(Team " + matches.get(key).getBlue1().getTeamNumber() + "): " + matches.get(key).getBlue1().getScore();
+            row[6] = "(Team " + matches.get(key).getBlue2().getTeamNumber() + "): " + matches.get(key).getBlue2().getScore();
+            row[7] = "(Team " + matches.get(key).getBlue3().getTeamNumber() + "): " + matches.get(key).getBlue3().getScore();
+                    
+            model.addRow(row);
+        }
+    }
+    
+    public void updateHeighestAvgScoreTable() {
+        TreeMap<Integer, Robot> robots = new TreeMap<Integer, Robot>();
+        int teamNumber = 0;
+        
+        for (int key : matches.keySet()) {
+            if (matches.get(key).getBlue1() != null && matches.get(key).getBlue1().getTeamNumber() == teamNumber) {
+                robots.put(key, matches.get(key).getBlue1());
+            }
+            else if (matches.get(key).getBlue2() != null && matches.get(key).getBlue2().getTeamNumber() == teamNumber) {
+                robots.put(key, matches.get(key).getBlue2());
+            }
+            else if (matches.get(key).getBlue3() != null && matches.get(key).getBlue3().getTeamNumber() == teamNumber) {
+                robots.put(key, matches.get(key).getBlue3());
+            }
+            else if (matches.get(key).getRed1() != null && matches.get(key).getRed1().getTeamNumber() == teamNumber) {
+                robots.put(key, matches.get(key).getRed1());
+            }
+            else if (matches.get(key).getRed2() != null && matches.get(key).getRed2().getTeamNumber() == teamNumber) {
+                robots.put(key, matches.get(key).getRed2());
+            }
+            else if (matches.get(key).getRed3() != null && matches.get(key).getRed3().getTeamNumber() == teamNumber) {
+                robots.put(key, matches.get(key).getRed3());
+            }
+        }
+    }
+    
+    public void updateHeighestIntakeTable() {
+        
+    }
+    
+    public void updateHeighestScoringPerfomanceTable() {
+        
+    }
+    
+    public void updateHeighestDefenseTable() {
+        
     }
 
     private void loadMatchesFromFile() {
@@ -1430,9 +1608,9 @@ public class MainWindow extends javax.swing.JFrame {
 
                     matches.put(matchNumber, m);
                 }
-                updateRawTable();
             }
-
+            System.out.println("csv opened");
+            updateRawTable();
         } catch (FileNotFoundException e) {
             System.out.println(e.toString());
         }
