@@ -143,6 +143,14 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel38 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable4 = new javax.swing.JTable();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTable5 = new javax.swing.JTable();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTable6 = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem_Save = new javax.swing.JMenuItem();
@@ -688,6 +696,104 @@ public class MainWindow extends javax.swing.JFrame {
         if (jTable2.getColumnModel().getColumnCount() > 0) {
             jTable2.getColumnModel().getColumn(0).setPreferredWidth(20);
             jTable2.getColumnModel().getColumn(1).setPreferredWidth(60);
+            jTable2.getColumnModel().getColumn(2).setHeaderValue("Red 1");
+            jTable2.getColumnModel().getColumn(3).setHeaderValue("Red 2");
+            jTable2.getColumnModel().getColumn(4).setHeaderValue("Red 3");
+            jTable2.getColumnModel().getColumn(5).setHeaderValue("Blue 1");
+            jTable2.getColumnModel().getColumn(6).setHeaderValue("Blue 2");
+            jTable2.getColumnModel().getColumn(7).setHeaderValue("Blue 3");
+        }
+
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Team Number", "Average Score"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable3);
+        if (jTable3.getColumnModel().getColumnCount() > 0) {
+            jTable3.getColumnModel().getColumn(0).setPreferredWidth(20);
+            jTable3.getColumnModel().getColumn(1).setPreferredWidth(60);
+        }
+
+        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Team Number", "Average Score"
+            }
+        ));
+        jScrollPane4.setViewportView(jTable4);
+        if (jTable4.getColumnModel().getColumnCount() > 0) {
+            jTable4.getColumnModel().getColumn(0).setPreferredWidth(20);
+            jTable4.getColumnModel().getColumn(1).setPreferredWidth(60);
+        }
+
+        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Team Number", "Average Score"
+            }
+        ));
+        jScrollPane5.setViewportView(jTable5);
+        if (jTable5.getColumnModel().getColumnCount() > 0) {
+            jTable5.getColumnModel().getColumn(0).setPreferredWidth(20);
+            jTable5.getColumnModel().getColumn(1).setPreferredWidth(60);
+        }
+
+        jTable6.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Team Number", "Average Score"
+            }
+        ));
+        jScrollPane6.setViewportView(jTable6);
+        if (jTable6.getColumnModel().getColumnCount() > 0) {
+            jTable6.getColumnModel().getColumn(0).setPreferredWidth(20);
+            jTable6.getColumnModel().getColumn(1).setPreferredWidth(60);
         }
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -719,17 +825,29 @@ public class MainWindow extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 875, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel37))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
+                                .addGap(32, 32, 32)
+                                .addComponent(jLabel37)
+                                .addGap(144, 144, 144)
                                 .addComponent(jLabel38))
-                            .addComponent(jLabel36)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(456, 456, 456)
-                                .addComponent(jLabel35))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 875, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel35)
+                                        .addGap(109, 109, 109))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(46, 46, 46)))
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel36)
+                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(46, 46, 46)
+                                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(184, 184, 184))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(295, 295, 295)
@@ -764,15 +882,23 @@ public class MainWindow extends javax.swing.JFrame {
                 .addComponent(jLabel34)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel35)
+                    .addComponent(jLabel36))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel35)
-                .addGap(27, 27, 27)
-                .addComponent(jLabel37)
-                .addGap(44, 44, 44)
-                .addComponent(jLabel36)
-                .addGap(104, 104, 104)
-                .addComponent(jLabel38)
-                .addGap(77, 77, 77))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel37)
+                    .addComponent(jLabel38))
+                .addGap(22, 22, 22)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         jTabbedPane3.addTab("Insights", jPanel3);
@@ -1258,6 +1384,10 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JSlider jSlider1;
     private javax.swing.JSlider jSlider2;
     private javax.swing.JSlider jSlider3;
@@ -1266,6 +1396,10 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
+    private javax.swing.JTable jTable4;
+    private javax.swing.JTable jTable5;
+    private javax.swing.JTable jTable6;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
@@ -1473,41 +1607,483 @@ public class MainWindow extends javax.swing.JFrame {
     }
     
     public void updateHeighestAvgScoreTable() {
-        TreeMap<Integer, Robot> robots = new TreeMap<Integer, Robot>();
-        int teamNumber = 0;
-        
+        TreeMap<Integer, ArrayList<Robot>> robots = new TreeMap<Integer, ArrayList<Robot>>();
+                
         for (int key : matches.keySet()) {
-            if (matches.get(key).getBlue1() != null && matches.get(key).getBlue1().getTeamNumber() == teamNumber) {
-                robots.put(key, matches.get(key).getBlue1());
+            Robot r;
+            ArrayList<Robot> ro;
+            int teamNumber;
+            
+            if (matches.get(key).getBlue1() != null) {
+                r = matches.get(key).getBlue1();
+                teamNumber = matches.get(key).getBlue1().getTeamNumber();
+                ro = new ArrayList<Robot>();
+                ro.add(r);
+                if (robots.containsKey(teamNumber)) {
+                    ro.addAll(robots.get(teamNumber));
+                }
+                robots.put(teamNumber, ro);
             }
-            else if (matches.get(key).getBlue2() != null && matches.get(key).getBlue2().getTeamNumber() == teamNumber) {
-                robots.put(key, matches.get(key).getBlue2());
+            
+            if (matches.get(key).getBlue2() != null) {
+                r = matches.get(key).getBlue2();
+                teamNumber = matches.get(key).getBlue2().getTeamNumber();
+                ro = new ArrayList<Robot>();
+                ro.add(r);
+                if (robots.containsKey(teamNumber)) {
+                    ro.addAll(robots.get(teamNumber));
+                }
+                robots.put(teamNumber, ro);
+            } 
+             
+            if (matches.get(key).getBlue3() != null) {
+                r = matches.get(key).getBlue3();
+                teamNumber = matches.get(key).getBlue3().getTeamNumber();
+                ro = new ArrayList<Robot>();
+                ro.add(r);
+                if (robots.containsKey(teamNumber)) {
+                    ro.addAll(robots.get(teamNumber));
+                }
+                robots.put(teamNumber, ro);
             }
-            else if (matches.get(key).getBlue3() != null && matches.get(key).getBlue3().getTeamNumber() == teamNumber) {
-                robots.put(key, matches.get(key).getBlue3());
+               
+            if (matches.get(key).getRed1() != null) {
+                r = matches.get(key).getRed1();
+                teamNumber = matches.get(key).getRed1().getTeamNumber();
+                ro = new ArrayList<Robot>();
+                ro.add(r);
+                if (robots.containsKey(teamNumber)) {
+                    ro.addAll(robots.get(teamNumber));
+                }
+                robots.put(teamNumber, ro);
             }
-            else if (matches.get(key).getRed1() != null && matches.get(key).getRed1().getTeamNumber() == teamNumber) {
-                robots.put(key, matches.get(key).getRed1());
+               
+            if (matches.get(key).getRed2() != null) {
+                r = matches.get(key).getRed2();
+                teamNumber = matches.get(key).getRed2().getTeamNumber();
+                ro = new ArrayList<Robot>();
+                ro.add(r);
+                if (robots.containsKey(teamNumber)) {
+                    ro.addAll(robots.get(teamNumber));
+                }
+                robots.put(teamNumber, ro);
             }
-            else if (matches.get(key).getRed2() != null && matches.get(key).getRed2().getTeamNumber() == teamNumber) {
-                robots.put(key, matches.get(key).getRed2());
+            
+            if (matches.get(key).getRed3() != null) {
+                r = matches.get(key).getRed3();
+                teamNumber = matches.get(key).getRed3().getTeamNumber();
+                ro = new ArrayList<Robot>();
+                ro.add(r);
+                if (robots.containsKey(teamNumber)) {
+                    ro.addAll(robots.get(teamNumber));
+                }
+                robots.put(teamNumber, ro);
             }
-            else if (matches.get(key).getRed3() != null && matches.get(key).getRed3().getTeamNumber() == teamNumber) {
-                robots.put(key, matches.get(key).getRed3());
+        }
+        
+        TreeMap<Integer, Double> averages = new TreeMap<Integer, Double>();
+        for (int team : robots.keySet()) {
+            int count = 0;
+            double score = 0;
+            for (Robot r : robots.get(team)) {
+                count++;
+                score += r.getScore();
             }
+            if (count != 0) {
+               averages.put(team, score / count); 
+            }
+        }
+        
+        int[] topTen = new int[10];
+        
+        TreeMap<Integer, Double> averagesCopy = new TreeMap<>();
+        averagesCopy.putAll(averages);
+        
+        for (int i = 0; i < 10; i++) {
+            double heighestScore = 0;
+            int heighestScoreKey = 0;
+            for (int key : averagesCopy.keySet()) {
+                if (averagesCopy.get(key) > heighestScore) {
+                    heighestScore = averagesCopy.get(key);
+                    heighestScoreKey = key;
+                }
+            }
+            topTen[i] = heighestScoreKey;
+            averagesCopy.remove(heighestScoreKey);
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) jTable3.getModel();
+        model.setRowCount(0);
+        
+        int i = 0;
+        for (int key : topTen) {
+            Object[] row = new Object[2];
+            row[0] = key;
+            row[1] = averages.get(key);
+                  
+            model.addRow(row);
+            i++;
         }
     }
     
     public void updateHeighestIntakeTable() {
+        TreeMap<Integer, ArrayList<Robot>> robots = new TreeMap<Integer, ArrayList<Robot>>();
+                
+        for (int key : matches.keySet()) {
+            Robot r;
+            ArrayList<Robot> ro;
+            int teamNumber;
+            
+            if (matches.get(key).getBlue1() != null) {
+                r = matches.get(key).getBlue1();
+                teamNumber = matches.get(key).getBlue1().getTeamNumber();
+                ro = new ArrayList<Robot>();
+                ro.add(r);
+                if (robots.containsKey(teamNumber)) {
+                    ro.addAll(robots.get(teamNumber));
+                }
+                robots.put(teamNumber, ro);
+            }
+            
+            if (matches.get(key).getBlue2() != null) {
+                r = matches.get(key).getBlue2();
+                teamNumber = matches.get(key).getBlue2().getTeamNumber();
+                ro = new ArrayList<Robot>();
+                ro.add(r);
+                if (robots.containsKey(teamNumber)) {
+                    ro.addAll(robots.get(teamNumber));
+                }
+                robots.put(teamNumber, ro);
+            } 
+             
+            if (matches.get(key).getBlue3() != null) {
+                r = matches.get(key).getBlue3();
+                teamNumber = matches.get(key).getBlue3().getTeamNumber();
+                ro = new ArrayList<Robot>();
+                ro.add(r);
+                if (robots.containsKey(teamNumber)) {
+                    ro.addAll(robots.get(teamNumber));
+                }
+                robots.put(teamNumber, ro);
+            }
+               
+            if (matches.get(key).getRed1() != null) {
+                r = matches.get(key).getRed1();
+                teamNumber = matches.get(key).getRed1().getTeamNumber();
+                ro = new ArrayList<Robot>();
+                ro.add(r);
+                if (robots.containsKey(teamNumber)) {
+                    ro.addAll(robots.get(teamNumber));
+                }
+                robots.put(teamNumber, ro);
+            }
+               
+            if (matches.get(key).getRed2() != null) {
+                r = matches.get(key).getRed2();
+                teamNumber = matches.get(key).getRed2().getTeamNumber();
+                ro = new ArrayList<Robot>();
+                ro.add(r);
+                if (robots.containsKey(teamNumber)) {
+                    ro.addAll(robots.get(teamNumber));
+                }
+                robots.put(teamNumber, ro);
+            }
+            
+            if (matches.get(key).getRed3() != null) {
+                r = matches.get(key).getRed3();
+                teamNumber = matches.get(key).getRed3().getTeamNumber();
+                ro = new ArrayList<Robot>();
+                ro.add(r);
+                if (robots.containsKey(teamNumber)) {
+                    ro.addAll(robots.get(teamNumber));
+                }
+                robots.put(teamNumber, ro);
+            }
+        }
         
+        TreeMap<Integer, Double> averages = new TreeMap<Integer, Double>();
+        for (int team : robots.keySet()) {
+            int count = 0;
+            double score = 0;
+            for (Robot r : robots.get(team)) {
+                count++;
+                score += r.getTeleop().getIntakePerform();
+            }
+            if (count != 0) {
+               averages.put(team, score / count); 
+            }
+        }
+        
+        int[] topTen = new int[10];
+        
+        TreeMap<Integer, Double> averagesCopy = new TreeMap<>();
+        averagesCopy.putAll(averages);
+        
+        for (int i = 0; i < 10; i++) {
+            double heighestScore = 0;
+            int heighestScoreKey = 0;
+            for (int key : averagesCopy.keySet()) {
+                if (averagesCopy.get(key) > heighestScore) {
+                    heighestScore = averagesCopy.get(key);
+                    heighestScoreKey = key;
+                }
+            }
+            topTen[i] = heighestScoreKey;
+            averagesCopy.remove(heighestScoreKey);
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) jTable5.getModel();
+        model.setRowCount(0);
+        
+        int i = 0;
+        for (int key : topTen) {
+            Object[] row = new Object[2];
+            row[0] = key;
+            row[1] = averages.get(key);
+                  
+            model.addRow(row);
+            i++;
+        }
     }
     
     public void updateHeighestScoringPerfomanceTable() {
+        TreeMap<Integer, ArrayList<Robot>> robots = new TreeMap<Integer, ArrayList<Robot>>();
+                
+        for (int key : matches.keySet()) {
+            Robot r;
+            ArrayList<Robot> ro;
+            int teamNumber;
+            
+            if (matches.get(key).getBlue1() != null) {
+                r = matches.get(key).getBlue1();
+                teamNumber = matches.get(key).getBlue1().getTeamNumber();
+                ro = new ArrayList<Robot>();
+                ro.add(r);
+                if (robots.containsKey(teamNumber)) {
+                    ro.addAll(robots.get(teamNumber));
+                }
+                robots.put(teamNumber, ro);
+            }
+            
+            if (matches.get(key).getBlue2() != null) {
+                r = matches.get(key).getBlue2();
+                teamNumber = matches.get(key).getBlue2().getTeamNumber();
+                ro = new ArrayList<Robot>();
+                ro.add(r);
+                if (robots.containsKey(teamNumber)) {
+                    ro.addAll(robots.get(teamNumber));
+                }
+                robots.put(teamNumber, ro);
+            } 
+             
+            if (matches.get(key).getBlue3() != null) {
+                r = matches.get(key).getBlue3();
+                teamNumber = matches.get(key).getBlue3().getTeamNumber();
+                ro = new ArrayList<Robot>();
+                ro.add(r);
+                if (robots.containsKey(teamNumber)) {
+                    ro.addAll(robots.get(teamNumber));
+                }
+                robots.put(teamNumber, ro);
+            }
+               
+            if (matches.get(key).getRed1() != null) {
+                r = matches.get(key).getRed1();
+                teamNumber = matches.get(key).getRed1().getTeamNumber();
+                ro = new ArrayList<Robot>();
+                ro.add(r);
+                if (robots.containsKey(teamNumber)) {
+                    ro.addAll(robots.get(teamNumber));
+                }
+                robots.put(teamNumber, ro);
+            }
+               
+            if (matches.get(key).getRed2() != null) {
+                r = matches.get(key).getRed2();
+                teamNumber = matches.get(key).getRed2().getTeamNumber();
+                ro = new ArrayList<Robot>();
+                ro.add(r);
+                if (robots.containsKey(teamNumber)) {
+                    ro.addAll(robots.get(teamNumber));
+                }
+                robots.put(teamNumber, ro);
+            }
+            
+            if (matches.get(key).getRed3() != null) {
+                r = matches.get(key).getRed3();
+                teamNumber = matches.get(key).getRed3().getTeamNumber();
+                ro = new ArrayList<Robot>();
+                ro.add(r);
+                if (robots.containsKey(teamNumber)) {
+                    ro.addAll(robots.get(teamNumber));
+                }
+                robots.put(teamNumber, ro);
+            }
+        }
         
+        TreeMap<Integer, Double> averages = new TreeMap<Integer, Double>();
+        for (int team : robots.keySet()) {
+            int count = 0;
+            double score = 0;
+            for (Robot r : robots.get(team)) {
+                count++;
+                score += r.getTeleop().getScoringPerform();
+            }
+            if (count != 0) {
+               averages.put(team, score / count); 
+            }
+        }
+        
+        int[] topTen = new int[10];
+        
+        TreeMap<Integer, Double> averagesCopy = new TreeMap<>();
+        averagesCopy.putAll(averages);
+        
+        for (int i = 0; i < 10; i++) {
+            double heighestScore = 0;
+            int heighestScoreKey = 0;
+            for (int key : averagesCopy.keySet()) {
+                if (averagesCopy.get(key) > heighestScore) {
+                    heighestScore = averagesCopy.get(key);
+                    heighestScoreKey = key;
+                }
+            }
+            topTen[i] = heighestScoreKey;
+            averagesCopy.remove(heighestScoreKey);
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) jTable4.getModel();
+        model.setRowCount(0);
+        
+        int i = 0;
+        for (int key : topTen) {
+            Object[] row = new Object[2];
+            row[0] = key;
+            row[1] = averages.get(key);
+                  
+            model.addRow(row);
+            i++;
+        }
     }
     
     public void updateHeighestDefenseTable() {
+        TreeMap<Integer, ArrayList<Robot>> robots = new TreeMap<Integer, ArrayList<Robot>>();
+                
+        for (int key : matches.keySet()) {
+            Robot r;
+            ArrayList<Robot> ro;
+            int teamNumber;
+            
+            if (matches.get(key).getBlue1() != null) {
+                r = matches.get(key).getBlue1();
+                teamNumber = matches.get(key).getBlue1().getTeamNumber();
+                ro = new ArrayList<Robot>();
+                ro.add(r);
+                if (robots.containsKey(teamNumber)) {
+                    ro.addAll(robots.get(teamNumber));
+                }
+                robots.put(teamNumber, ro);
+            }
+            
+            if (matches.get(key).getBlue2() != null) {
+                r = matches.get(key).getBlue2();
+                teamNumber = matches.get(key).getBlue2().getTeamNumber();
+                ro = new ArrayList<Robot>();
+                ro.add(r);
+                if (robots.containsKey(teamNumber)) {
+                    ro.addAll(robots.get(teamNumber));
+                }
+                robots.put(teamNumber, ro);
+            } 
+             
+            if (matches.get(key).getBlue3() != null) {
+                r = matches.get(key).getBlue3();
+                teamNumber = matches.get(key).getBlue3().getTeamNumber();
+                ro = new ArrayList<Robot>();
+                ro.add(r);
+                if (robots.containsKey(teamNumber)) {
+                    ro.addAll(robots.get(teamNumber));
+                }
+                robots.put(teamNumber, ro);
+            }
+               
+            if (matches.get(key).getRed1() != null) {
+                r = matches.get(key).getRed1();
+                teamNumber = matches.get(key).getRed1().getTeamNumber();
+                ro = new ArrayList<Robot>();
+                ro.add(r);
+                if (robots.containsKey(teamNumber)) {
+                    ro.addAll(robots.get(teamNumber));
+                }
+                robots.put(teamNumber, ro);
+            }
+               
+            if (matches.get(key).getRed2() != null) {
+                r = matches.get(key).getRed2();
+                teamNumber = matches.get(key).getRed2().getTeamNumber();
+                ro = new ArrayList<Robot>();
+                ro.add(r);
+                if (robots.containsKey(teamNumber)) {
+                    ro.addAll(robots.get(teamNumber));
+                }
+                robots.put(teamNumber, ro);
+            }
+            
+            if (matches.get(key).getRed3() != null) {
+                r = matches.get(key).getRed3();
+                teamNumber = matches.get(key).getRed3().getTeamNumber();
+                ro = new ArrayList<Robot>();
+                ro.add(r);
+                if (robots.containsKey(teamNumber)) {
+                    ro.addAll(robots.get(teamNumber));
+                }
+                robots.put(teamNumber, ro);
+            }
+        }
         
+        TreeMap<Integer, Double> averages = new TreeMap<Integer, Double>();
+        for (int team : robots.keySet()) {
+            int count = 0;
+            double score = 0;
+            for (Robot r : robots.get(team)) {
+                count++;
+                score += r.getTeleop().getDefensivePerform();
+            }
+            if (count != 0) {
+               averages.put(team, score / count); 
+            }
+        }
+        
+        int[] topTen = new int[10];
+        
+        TreeMap<Integer, Double> averagesCopy = new TreeMap<>();
+        averagesCopy.putAll(averages);
+        
+        for (int i = 0; i < 10; i++) {
+            double heighestScore = 0;
+            int heighestScoreKey = 0;
+            for (int key : averagesCopy.keySet()) {
+                if (averagesCopy.get(key) > heighestScore) {
+                    heighestScore = averagesCopy.get(key);
+                    heighestScoreKey = key;
+                }
+            }
+            topTen[i] = heighestScoreKey;
+            averagesCopy.remove(heighestScoreKey);
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) jTable6.getModel();
+        model.setRowCount(0);
+        
+        int i = 0;
+        for (int key : topTen) {
+            Object[] row = new Object[2];
+            row[0] = key;
+            row[1] = averages.get(key);
+                  
+            model.addRow(row);
+            i++;
+        }
     }
 
     private void loadMatchesFromFile() {
