@@ -22,13 +22,13 @@ public class EndGame implements Serializable{
         
         switch (climbBehavior) {
             case 5:
-                this.endGameScore = 15;//temp
+                this.endGameScore = 15;
                 break;
             case 4:
-                this.endGameScore = 10;//temp
+                this.endGameScore = 10;
                 break;
             case 3:
-                this.endGameScore = 6;//temp
+                this.endGameScore = 6;
                 break;
             case 2:
                 this.endGameScore = 4;
