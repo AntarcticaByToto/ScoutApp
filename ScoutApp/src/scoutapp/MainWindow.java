@@ -36,7 +36,7 @@ public class MainWindow extends javax.swing.JFrame {
     public MainWindow() {
         initComponents();
         matches = new TreeMap<Integer, Match>();
-        loadMatchesFromFile();
+        //loadMatchesFromFile();
         jMenuItem_Save.setEnabled(false);
         jLabel33.setVisible(false);
         jLabel33.setText("Team Number");
@@ -1554,6 +1554,10 @@ public class MainWindow extends javax.swing.JFrame {
     }
     
     public void updateHeighestTables() {
+        if (matches.size() < 10) {
+            return;
+        }
+        
         updateHeighestScoreTable();
         updateHeighestAvgScoreTable();
         updateHeighestIntakeTable();
@@ -1595,12 +1599,12 @@ public class MainWindow extends javax.swing.JFrame {
                 row[1] = "(" + matches.get(key).getMatchScore(Match.AllianceColor.ALL) + ") RED: " + matches.get(key).getMatchScore(Match.AllianceColor.RED);
             }
             
-            row[2] = "(Team " + matches.get(key).getRed1().getTeamNumber() + "): " + matches.get(key).getRed1().getScore();
-            row[3] = "(Team " + matches.get(key).getRed2().getTeamNumber() + "): " + matches.get(key).getRed2().getScore();
-            row[4] = "(Team " + matches.get(key).getRed3().getTeamNumber() + "): " + matches.get(key).getRed3().getScore();
-            row[5] = "(Team " + matches.get(key).getBlue1().getTeamNumber() + "): " + matches.get(key).getBlue1().getScore();
-            row[6] = "(Team " + matches.get(key).getBlue2().getTeamNumber() + "): " + matches.get(key).getBlue2().getScore();
-            row[7] = "(Team " + matches.get(key).getBlue3().getTeamNumber() + "): " + matches.get(key).getBlue3().getScore();
+            row[2] = matches.get(key).getRed1() == null ? "" : "(Team " + matches.get(key).getRed1().getTeamNumber() + "): " + matches.get(key).getRed1().getScore();
+            row[3] = matches.get(key).getRed2() == null ? "" : "(Team " + matches.get(key).getRed2().getTeamNumber() + "): " + matches.get(key).getRed2().getScore();
+            row[4] = matches.get(key).getRed3() == null ? "" : "(Team " + matches.get(key).getRed3().getTeamNumber() + "): " + matches.get(key).getRed3().getScore();
+            row[5] = matches.get(key).getBlue1() == null ? "" : "(Team " + matches.get(key).getBlue1().getTeamNumber() + "): " + matches.get(key).getBlue1().getScore();
+            row[6] = matches.get(key).getBlue2() == null ? "" : "(Team " + matches.get(key).getBlue2().getTeamNumber() + "): " + matches.get(key).getBlue2().getScore();
+            row[7] = matches.get(key).getBlue3() == null ? "" : "(Team " + matches.get(key).getBlue3().getTeamNumber() + "): " + matches.get(key).getBlue3().getScore();
                     
             model.addRow(row);
         }
