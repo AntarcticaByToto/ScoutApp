@@ -201,6 +201,12 @@ public class MainWindow extends javax.swing.JFrame {
 
         jTabbedPane3.addTab("Credits", jPanel4);
 
+        jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jPanel1MouseMoved(evt);
+            }
+        });
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/field.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -1274,6 +1280,35 @@ public class MainWindow extends javax.swing.JFrame {
             default -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), GraphicsPanelScore.DataType.TEAM, GraphicsPanelScore.ScoreType.ALL_POINTS, ac);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jPanel1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseMoved
+        int score = 0;
+        score += jTextField4.getText().equals("") ? 0 : Integer.parseInt(jTextField4.getText()) * 4;
+        score += jTextField3.getText().equals("") ? 0 : Integer.parseInt(jTextField4.getText()) * 2;
+        
+        score += jTextField5.getText().equals("") ? 0 : Integer.parseInt(jTextField5.getText()) * 2;
+        score += jTextField7.getText().equals("") ? 0 : Integer.parseInt(jTextField7.getText()) * 1;
+        
+        if(jCheckBox16.isSelected()) {
+            score += 15;
+        }
+        else if(jCheckBox15.isSelected()) {
+            score += 10;
+        }
+        else if(jCheckBox14.isSelected()) {
+            score += 6;
+        }
+        else if (jCheckBox17.isSelected()) {
+            score += 4;
+        }
+        
+        jTextField6.setText(Integer.toString(score));
+        
+        if (matches.containsKey((int)(jSpinner1.getValue()))) {
+            jTextField8.setText("(" + Integer.toString(matches.get((int)(jSpinner1.getValue())).getMatchScore(Match.AllianceColor.ALL)) + "): RED: " + Integer.toString(matches.get((int)(jSpinner1.getValue())).getMatchScore(Match.AllianceColor.RED)) + " / BLUE: " + Integer.toString(matches.get((int)(jSpinner1.getValue())).getMatchScore(Match.AllianceColor.BLUE)));
+        }
+        //jtextField8
+    }//GEN-LAST:event_jPanel1MouseMoved
 
     /**
      * @param args the command line arguments
