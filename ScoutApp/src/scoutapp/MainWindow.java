@@ -19,6 +19,7 @@ import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -157,6 +158,7 @@ public class MainWindow extends javax.swing.JFrame {
         jMenuItem_Save = new javax.swing.JMenuItem();
         jMenuItem_SaveAs = new javax.swing.JMenuItem();
         jMenuItem_Open = new javax.swing.JMenuItem();
+        jMenuItem_OpenCSV = new javax.swing.JMenuItem();
         jMenu_Edit = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -360,7 +362,7 @@ public class MainWindow extends javax.swing.JFrame {
                                             .addComponent(jLabel_AutoBehavior)
                                             .addComponent(jCheckBox_AutoB1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(jCheckBox_AutoB2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jCheckBox_AutoB3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, Short.MAX_VALUE)
+                                            .addComponent(jCheckBox_AutoB3, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
                                             .addComponent(jCheckBox_AutoB4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addGap(50, 50, 50)
                                         .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -923,6 +925,14 @@ public class MainWindow extends javax.swing.JFrame {
         });
         jMenu_File.add(jMenuItem_Open);
 
+        jMenuItem_OpenCSV.setText("Open CSV");
+        jMenuItem_OpenCSV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_OpenCSVActionPerformed(evt);
+            }
+        });
+        jMenu_File.add(jMenuItem_OpenCSV);
+
         jMenuBar.add(jMenu_File);
 
         jMenu_Edit.setText("Edit");
@@ -1201,7 +1211,6 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jComboBox_DisplayScoreActionPerformed
 
-    
 
     private void jButton_SubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SubmitActionPerformed
         //Takes all data from user filled fields and stores them into a <match> inside the matches treemap.
@@ -1308,6 +1317,34 @@ public class MainWindow extends javax.swing.JFrame {
         jComboBox_Color.setSelectedIndex(0);
     }//GEN-LAST:event_jButton_SubmitActionPerformed
 
+    private void jMenuItem_OpenCSVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_OpenCSVActionPerformed
+        // Prompts the user for a file to open location and name. then creates
+        // a matchModel with  the <matches> object saved in the file on the disk. 
+        // The model is then used to run updateRawTable.
+        JFileChooser jfc = new JFileChooser();
+
+        if (jfc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+        
+            File selectedFile = jfc.getSelectedFile();
+
+            if (!selectedFile.exists()) {
+                System.out.println(selectedFile.getPath() + " Does Not Exist");
+                return; 
+            }
+            if (!selectedFile.getPath().contains("csv")) {
+                System.out.println(selectedFile.getPath() + " Is Not A .csv");
+                JOptionPane.showMessageDialog(this, "ERROR: (" + selectedFile.getPath() + ") Is Not A .csv. Please chose a .csv.", "CSV Open Error",JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            loadMatchesFromCSV(selectedFile.getPath());
+
+            updateRawTable();
+            System.out.println(selectedFile);
+            
+        }
+    }//GEN-LAST:event_jMenuItem_OpenCSVActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1406,6 +1443,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_TotalPointsRobot;
     private javax.swing.JMenuBar jMenuBar;
     private javax.swing.JMenuItem jMenuItem_Open;
+    private javax.swing.JMenuItem jMenuItem_OpenCSV;
     private javax.swing.JMenuItem jMenuItem_Save;
     private javax.swing.JMenuItem jMenuItem_SaveAs;
     private javax.swing.JMenu jMenu_Edit;
@@ -2143,11 +2181,11 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }
 
-    private void loadMatchesFromFile() {
+    private void loadMatchesFromCSV(String fileName) {
         // Loads data for matches from a .csv file format for easy data entry from outside
         // sources.
         try {
-            Scanner file = new Scanner(new File("sampleData.csv"));
+            Scanner file = new Scanner(new File(fileName));
             System.out.println("opening csv");
             file.nextLine();
             int i = 0;
