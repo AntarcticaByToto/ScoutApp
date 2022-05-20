@@ -34,17 +34,19 @@ public class MainWindow extends javax.swing.JFrame {
     private File currentFile;
 
     public MainWindow() {
+       
+       //Initialize GUI compenents at the proper states, intitialize matches TreeMap. 
         initComponents();
         matches = new TreeMap<Integer, Match>();
         //loadMatchesFromFile();
         jMenuItem_Save.setEnabled(false);
-        jLabel33.setVisible(false);
-        jLabel33.setText("Team Number");
-        jTextField10.setVisible(false);
-        jComboBox4.setVisible(false);
-        jButton2.setVisible(false);
+        jLabel_InsightsTeamNumber.setVisible(false);
+        jLabel_InsightsTeamNumber.setText("Team Number");
+        jTextField_InsightsTeamNumber.setVisible(false);
+        jComboBox_InsightsColor.setVisible(false);
+        jButton_SearchTeam.setVisible(false);
         
-        jComboBox2ActionPerformed(null);
+        jComboBox_DisplayScoreActionPerformed(null);
     }
 
     /**
@@ -56,111 +58,110 @@ public class MainWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane3 = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jCheckBox5 = new javax.swing.JCheckBox();
-        jCheckBox6 = new javax.swing.JCheckBox();
-        jCheckBox7 = new javax.swing.JCheckBox();
-        jLabel10 = new javax.swing.JLabel();
-        jCheckBox9 = new javax.swing.JCheckBox();
-        jCheckBox10 = new javax.swing.JCheckBox();
-        jCheckBox11 = new javax.swing.JCheckBox();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jSlider1 = new javax.swing.JSlider();
-        jLabel14 = new javax.swing.JLabel();
-        jSlider2 = new javax.swing.JSlider();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jSlider3 = new javax.swing.JSlider();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jLabel21 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jLabel22 = new javax.swing.JLabel();
-        jCheckBox12 = new javax.swing.JCheckBox();
-        jCheckBox13 = new javax.swing.JCheckBox();
-        jCheckBox14 = new javax.swing.JCheckBox();
-        jCheckBox15 = new javax.swing.JCheckBox();
-        jCheckBox16 = new javax.swing.JCheckBox();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jLabel25 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
-        jSpinner1 = new javax.swing.JSpinner();
-        jLabel27 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabel28 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
-        jLabel29 = new javax.swing.JLabel();
-        jSpinner2 = new javax.swing.JSpinner();
-        jLabel30 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel31 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
-        jCheckBox17 = new javax.swing.JCheckBox();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel5 = new GraphicsPanelScore();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jTextField10 = new javax.swing.JTextField();
-        jLabel33 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox<>();
-        jButton2 = new javax.swing.JButton();
-        jLabel34 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        jTable6 = new javax.swing.JTable();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        jTabbedPane_Tabs = new javax.swing.JTabbedPane();
+        jPanel_RawPanel = new javax.swing.JPanel();
+        jScrollPane = new javax.swing.JScrollPane();
+        jTable_Raw = new javax.swing.JTable();
+        jPanel_Scout = new javax.swing.JPanel();
+        jLabel_Field = new javax.swing.JLabel();
+        jLabel_Auto = new javax.swing.JLabel();
+        jLabel_Teleop = new javax.swing.JLabel();
+        jLabel_AutoBehavior = new javax.swing.JLabel();
+        jCheckBox_AutoB1 = new javax.swing.JCheckBox();
+        jCheckBox_AutoB2 = new javax.swing.JCheckBox();
+        jCheckBox_AutoB3 = new javax.swing.JCheckBox();
+        jCheckBox_AutoB4 = new javax.swing.JCheckBox();
+        jLabel_AutoUH = new javax.swing.JLabel();
+        jTextField_AutoLHAttempt = new javax.swing.JTextField();
+        jTextField_AutoUHAttempted = new javax.swing.JTextField();
+        jLabel_AutoUHAttempted = new javax.swing.JLabel();
+        jLabel_AutoLH = new javax.swing.JLabel();
+        jTextField_AutoLH = new javax.swing.JTextField();
+        jLabel_AutoLHAttempted = new javax.swing.JLabel();
+        jTextField_AutoUH = new javax.swing.JTextField();
+        jLabel_TeleopBehavior = new javax.swing.JLabel();
+        jCheckBox_TeleopB1 = new javax.swing.JCheckBox();
+        jCheckBox_TeleopB2 = new javax.swing.JCheckBox();
+        jCheckBox_TeleopB3 = new javax.swing.JCheckBox();
+        jLabel_TeleopIntakeBehavior = new javax.swing.JLabel();
+        jCheckBox_TeleopIB1 = new javax.swing.JCheckBox();
+        jCheckBox_TeleopIB2 = new javax.swing.JCheckBox();
+        jCheckBox_TeleopIB3 = new javax.swing.JCheckBox();
+        jLabel_IntakePerf = new javax.swing.JLabel();
+        jLabel_IntakeNone = new javax.swing.JLabel();
+        jLabel_IntakeAll = new javax.swing.JLabel();
+        jSlider_IntakePerf = new javax.swing.JSlider();
+        jLabel_ScoreAll = new javax.swing.JLabel();
+        jSlider_ScorePerf = new javax.swing.JSlider();
+        jLabel_ScorePerf = new javax.swing.JLabel();
+        jLabel_ScoreNone = new javax.swing.JLabel();
+        jLabel_DefAll = new javax.swing.JLabel();
+        jSlider_DefPerf = new javax.swing.JSlider();
+        jLabel_DefPerf = new javax.swing.JLabel();
+        jLabel_DefNone = new javax.swing.JLabel();
+        jLabel_TeleopUH = new javax.swing.JLabel();
+        jTextField_TeleopUH = new javax.swing.JTextField();
+        jLabel_TeleopLH = new javax.swing.JLabel();
+        jTextField_TotalPoints = new javax.swing.JTextField();
+        jLabel_EG = new javax.swing.JLabel();
+        jCheckBox_EGB1 = new javax.swing.JCheckBox();
+        jCheckBox_EGB2 = new javax.swing.JCheckBox();
+        jCheckBox_EGB4 = new javax.swing.JCheckBox();
+        jCheckBox_EGB5 = new javax.swing.JCheckBox();
+        jCheckBox_EGB6 = new javax.swing.JCheckBox();
+        jLabel_TotalPointsRobot = new javax.swing.JLabel();
+        jLabel_TotalPointsMatch = new javax.swing.JLabel();
+        jTextField_TeleopLH = new javax.swing.JTextField();
+        jTextField_TotalPointsMatch = new javax.swing.JTextField();
+        jLabel_Comments = new javax.swing.JLabel();
+        jTextField_Comments = new javax.swing.JTextField();
+        jSpinner_MatchNumber = new javax.swing.JSpinner();
+        jLabel_MatchNumber = new javax.swing.JLabel();
+        jButton_Submit = new javax.swing.JButton();
+        jLabel_TeamNumber = new javax.swing.JLabel();
+        jTextField_TeamNumber = new javax.swing.JTextField();
+        jLabel_Placement = new javax.swing.JLabel();
+        jSpinner_Placement = new javax.swing.JSpinner();
+        jLabel_Color = new javax.swing.JLabel();
+        jComboBox_Color = new javax.swing.JComboBox<>();
+        jLabel_ScoutName = new javax.swing.JLabel();
+        jTextField_ScoutName = new javax.swing.JTextField();
+        jCheckBox_EGB3 = new javax.swing.JCheckBox();
+        jPanel_Insights = new javax.swing.JPanel();
+        jPanel_Graphics = new GraphicsPanelScore();
+        jComboBox_DisplayScore = new javax.swing.JComboBox<>();
+        jLabel_DisplayScore = new javax.swing.JLabel();
+        jLabel_DisplayData = new javax.swing.JLabel();
+        jComboBox_DisplayData = new javax.swing.JComboBox<>();
+        jTextField_InsightsTeamNumber = new javax.swing.JTextField();
+        jLabel_InsightsTeamNumber = new javax.swing.JLabel();
+        jComboBox_InsightsColor = new javax.swing.JComboBox<>();
+        jButton_SearchTeam = new javax.swing.JButton();
+        jLabel_Top10Scores = new javax.swing.JLabel();
+        jLabel_Top10AvgScoreMatch = new javax.swing.JLabel();
+        jLabel_Top10AvgScorePerf = new javax.swing.JLabel();
+        jLabel_Top10AvgIntake = new javax.swing.JLabel();
+        jLabel_Top10AvgDef = new javax.swing.JLabel();
+        jScrollPane_TopMatchScores = new javax.swing.JScrollPane();
+        jTable_TopMatchScores = new javax.swing.JTable();
+        jScrollPane_TopAvgMatchScores = new javax.swing.JScrollPane();
+        jTable_TopAvgMatchScores = new javax.swing.JTable();
+        jScrollPane_TopAvgScorePerf = new javax.swing.JScrollPane();
+        jTable_TopAvgScorePerf = new javax.swing.JTable();
+        jScrollPane_TopIntake = new javax.swing.JScrollPane();
+        jTable_TopIntake = new javax.swing.JTable();
+        jScrollPane_TopDef = new javax.swing.JScrollPane();
+        jTable_TopDef = new javax.swing.JTable();
+        jMenuBar = new javax.swing.JMenuBar();
+        jMenu_File = new javax.swing.JMenu();
         jMenuItem_Save = new javax.swing.JMenuItem();
         jMenuItem_SaveAs = new javax.swing.JMenuItem();
         jMenuItem_Open = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        jMenu_Edit = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTable_Raw.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -168,514 +169,507 @@ public class MainWindow extends javax.swing.JFrame {
                 "Match #", "Team #", "Scout Name", "Total Points.", "Comment"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane.setViewportView(jTable_Raw);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel_RawPanelLayout = new javax.swing.GroupLayout(jPanel_RawPanel);
+        jPanel_RawPanel.setLayout(jPanel_RawPanelLayout);
+        jPanel_RawPanelLayout.setHorizontalGroup(
+            jPanel_RawPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_RawPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1454, Short.MAX_VALUE))
+                .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1454, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        jPanel_RawPanelLayout.setVerticalGroup(
+            jPanel_RawPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_RawPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(123, Short.MAX_VALUE))
         );
 
-        jTabbedPane3.addTab("Raw Data", jPanel2);
+        jTabbedPane_Tabs.addTab("Raw Data", jPanel_RawPanel);
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1464, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 762, Short.MAX_VALUE)
-        );
-
-        jTabbedPane3.addTab("Credits", jPanel4);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/field.png"))); // NOI18N
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel2.setText("Auto");
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel3.setText("Tele-Op");
-
-        jLabel4.setText("Auto Behavior:");
-
-        jCheckBox1.setText("Did Not Move");
-
-        jCheckBox2.setText("Taxied");
-
-        jCheckBox3.setText("Attempted to Score");
-
-        jCheckBox4.setText("Attempted Cargo");
-
-        jLabel5.setText("Upper Hub Shots Made:");
-
-        jLabel6.setText("Upper Hub Shots Attempted:");
-
-        jLabel7.setText("Lower Hub Shots Made:");
-
-        jLabel8.setText("Lower Hub Shots Attempted:");
-
-        jLabel9.setText("Teleop Behavior:");
-
-        jCheckBox5.setText("Did Not Move");
-
-        jCheckBox6.setText("Attempted Pickup of Cargo");
-
-        jCheckBox7.setText("Attempted to Score");
-
-        jLabel10.setText("How Robot Picked Up Cargo");
-
-        jCheckBox9.setText("No Cargo Pickup");
-
-        jCheckBox10.setText("From Human Player");
-
-        jCheckBox11.setText("Intake on Robot");
-
-        jLabel11.setText("Intake Peformance");
-
-        jLabel12.setText("None");
-
-        jLabel13.setText("Consistent / Reliable");
-
-        jLabel14.setText("Consistent / Reliable");
-
-        jLabel15.setText("Scoring Peformance");
-
-        jLabel16.setText("None");
-
-        jLabel17.setText("Unstoppable");
-
-        jLabel18.setText("Defensive Skill");
-
-        jLabel19.setText("None");
-
-        jLabel20.setText("Upper Hub Shots Made:");
-
-        jLabel21.setText("Lower Hub Shots Made:");
-
-        jTextField6.setEditable(false);
-
-        jLabel22.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel22.setText("End Game");
-
-        jCheckBox12.setText("Didn't Attempt to Climb");
-
-        jCheckBox13.setText("Atempted, But Didn't Climb");
-
-        jCheckBox14.setText("Mid Rung");
-
-        jCheckBox15.setText("High Rung");
-
-        jCheckBox16.setText("Traversal");
-
-        jLabel23.setText("Total Points (Robot)");
-
-        jLabel24.setText("Total Points (Match)");
-
-        jTextField8.setEditable(false);
-
-        jLabel25.setText("Comments:");
-
-        jLabel27.setText("Match Number");
-
-        jButton1.setText("SUBMIT MATCH");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        jPanel_Scout.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jPanel_ScoutMouseMoved(evt);
             }
         });
 
-        jLabel28.setText("Robot Team Number");
+        jLabel_Field.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/field.png"))); // NOI18N
 
-        jLabel29.setText("Field Placement");
+        jLabel_Auto.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel_Auto.setText("Auto");
 
-        jLabel30.setText("Alliance Color");
+        jLabel_Teleop.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel_Teleop.setText("Tele-Op");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Red", "Blue" }));
+        jLabel_AutoBehavior.setText("Auto Behavior:");
 
-        jLabel31.setText("Scout Name");
+        jCheckBox_AutoB1.setText("Did Not Move");
 
-        jCheckBox17.setText("Low Rung");
+        jCheckBox_AutoB2.setText("Taxied");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jCheckBox_AutoB3.setText("Attempted to Score");
+
+        jCheckBox_AutoB4.setText("Attempted Cargo");
+
+        jLabel_AutoUH.setText("Upper Hub Shots Made:");
+
+        jLabel_AutoUHAttempted.setText("Upper Hub Shots Attempted:");
+
+        jLabel_AutoLH.setText("Lower Hub Shots Made:");
+
+        jLabel_AutoLHAttempted.setText("Lower Hub Shots Attempted:");
+
+        jLabel_TeleopBehavior.setText("Teleop Behavior:");
+
+        jCheckBox_TeleopB1.setText("Did Not Move");
+
+        jCheckBox_TeleopB2.setText("Attempted Pickup of Cargo");
+
+        jCheckBox_TeleopB3.setText("Attempted to Score");
+
+        jLabel_TeleopIntakeBehavior.setText("How Robot Picked Up Cargo");
+
+        jCheckBox_TeleopIB1.setText("No Cargo Pickup");
+
+        jCheckBox_TeleopIB2.setText("From Human Player");
+
+        jCheckBox_TeleopIB3.setText("Intake on Robot");
+
+        jLabel_IntakePerf.setText("Intake Peformance");
+
+        jLabel_IntakeNone.setText("None");
+
+        jLabel_IntakeAll.setText("Consistent / Reliable");
+
+        jLabel_ScoreAll.setText("Consistent / Reliable");
+
+        jLabel_ScorePerf.setText("Scoring Peformance");
+
+        jLabel_ScoreNone.setText("None");
+
+        jLabel_DefAll.setText("Unstoppable");
+
+        jLabel_DefPerf.setText("Defensive Skill");
+
+        jLabel_DefNone.setText("None");
+
+        jLabel_TeleopUH.setText("Upper Hub Shots Made:");
+
+        jLabel_TeleopLH.setText("Lower Hub Shots Made:");
+
+        jTextField_TotalPoints.setEditable(false);
+
+        jLabel_EG.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel_EG.setText("End Game");
+
+        jCheckBox_EGB1.setText("Didn't Attempt to Climb");
+
+        jCheckBox_EGB2.setText("Atempted, But Didn't Climb");
+
+        jCheckBox_EGB4.setText("Mid Rung");
+
+        jCheckBox_EGB5.setText("High Rung");
+
+        jCheckBox_EGB6.setText("Traversal");
+
+        jLabel_TotalPointsRobot.setText("Total Points (Robot)");
+
+        jLabel_TotalPointsMatch.setText("Total Points (Match)");
+
+        jTextField_TotalPointsMatch.setEditable(false);
+
+        jLabel_Comments.setText("Comments:");
+
+        jLabel_MatchNumber.setText("Match Number");
+
+        jButton_Submit.setText("SUBMIT MATCH");
+        jButton_Submit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_SubmitActionPerformed(evt);
+            }
+        });
+
+        jLabel_TeamNumber.setText("Robot Team Number");
+
+        jLabel_Placement.setText("Field Placement");
+
+        jLabel_Color.setText("Alliance Color");
+
+        jComboBox_Color.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Red", "Blue" }));
+
+        jLabel_ScoutName.setText("Scout Name");
+
+        jCheckBox_EGB3.setText("Low Rung");
+
+        javax.swing.GroupLayout jPanel_ScoutLayout = new javax.swing.GroupLayout(jPanel_Scout);
+        jPanel_Scout.setLayout(jPanel_ScoutLayout);
+        jPanel_ScoutLayout.setHorizontalGroup(
+            jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_ScoutLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel_ScoutLayout.createSequentialGroup()
+                        .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel_ScoutLayout.createSequentialGroup()
                                 .addGap(112, 112, 112)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel_ScoutLayout.createSequentialGroup()
                                         .addGap(15, 15, 15)
-                                        .addComponent(jLabel18))
-                                    .addComponent(jLabel11)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel12)
+                                        .addComponent(jLabel_DefPerf))
+                                    .addComponent(jLabel_IntakePerf)))
+                            .addGroup(jPanel_ScoutLayout.createSequentialGroup()
+                                .addComponent(jLabel_IntakeNone)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jSlider_IntakePerf, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel13))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel16)
+                                .addComponent(jLabel_IntakeAll))
+                            .addGroup(jPanel_ScoutLayout.createSequentialGroup()
+                                .addComponent(jLabel_ScoreNone)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jSlider_ScorePerf, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel14))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel19)
+                                .addComponent(jLabel_ScoreAll))
+                            .addGroup(jPanel_ScoutLayout.createSequentialGroup()
+                                .addComponent(jLabel_DefNone)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jSlider3, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jSlider_DefPerf, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel17))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel20)
+                                .addComponent(jLabel_DefAll))
+                            .addGroup(jPanel_ScoutLayout.createSequentialGroup()
+                                .addComponent(jLabel_TeleopUH)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextField_TeleopUH, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(107, 107, 107)
-                                .addComponent(jLabel21)
+                                .addComponent(jLabel_TeleopLH)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jTextField_TeleopLH, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel_ScoutLayout.createSequentialGroup()
                                 .addGap(111, 111, 111)
-                                .addComponent(jLabel15)))
+                                .addComponent(jLabel_ScorePerf)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
+                        .addComponent(jButton_Submit)
                         .addGap(247, 247, 247))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jLabel4)
-                                            .addComponent(jCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jCheckBox2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jCheckBox3, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                                            .addComponent(jCheckBox4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel_ScoutLayout.createSequentialGroup()
+                        .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel_ScoutLayout.createSequentialGroup()
+                                .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel_ScoutLayout.createSequentialGroup()
+                                        .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jLabel_AutoBehavior)
+                                            .addComponent(jCheckBox_AutoB1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jCheckBox_AutoB2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jCheckBox_AutoB3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, Short.MAX_VALUE)
+                                            .addComponent(jCheckBox_AutoB4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addGap(50, 50, 50)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jLabel7)
+                                        .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(jPanel_ScoutLayout.createSequentialGroup()
+                                                .addComponent(jLabel_AutoLH)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jLabel8)
+                                                .addComponent(jTextField_AutoLH, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(jPanel_ScoutLayout.createSequentialGroup()
+                                                .addComponent(jLabel_AutoLHAttempted)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel6)
-                                                    .addComponent(jLabel5))
+                                                .addComponent(jTextField_AutoLHAttempt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(jPanel_ScoutLayout.createSequentialGroup()
+                                                .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel_AutoUHAttempted)
+                                                    .addComponent(jLabel_AutoUH))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jTextField_AutoUH, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jTextField_AutoUHAttempted, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addGroup(jPanel_ScoutLayout.createSequentialGroup()
                                         .addGap(122, 122, 122)
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel_Auto, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel_ScoutLayout.createSequentialGroup()
                                         .addGap(112, 112, 112)
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jLabel_Teleop, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel1))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel_Field))
+                            .addGroup(jPanel_ScoutLayout.createSequentialGroup()
                                 .addGap(170, 170, 170)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jCheckBox9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jCheckBox10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jCheckBox11, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel9)
-                                .addComponent(jCheckBox5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jCheckBox6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jCheckBox7, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel_TeleopIntakeBehavior)
+                                    .addComponent(jCheckBox_TeleopIB1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jCheckBox_TeleopIB2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jCheckBox_TeleopIB3, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel_TeleopBehavior)
+                                .addComponent(jCheckBox_TeleopB1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jCheckBox_TeleopB2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jCheckBox_TeleopB3, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel_ScoutLayout.createSequentialGroup()
                         .addGap(38, 38, 38)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jLabel30)
+                        .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_ScoutLayout.createSequentialGroup()
+                                    .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel_ScoutLayout.createSequentialGroup()
+                                            .addComponent(jLabel_Color)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jLabel29)
+                                            .addComponent(jComboBox_Color, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(jPanel_ScoutLayout.createSequentialGroup()
+                                                .addComponent(jLabel_Placement)
                                                 .addGap(18, 18, 18)
-                                                .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jLabel27)
+                                                .addComponent(jSpinner_Placement, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(jPanel_ScoutLayout.createSequentialGroup()
+                                                .addComponent(jLabel_MatchNumber)
                                                 .addGap(18, 18, 18)
-                                                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                .addComponent(jSpinner_MatchNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addGap(27, 27, 27))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel28)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_ScoutLayout.createSequentialGroup()
+                                    .addComponent(jLabel_TeamNumber)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel31)
+                                    .addComponent(jTextField_TeamNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_ScoutLayout.createSequentialGroup()
+                                    .addComponent(jLabel_ScoutName)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jTextField_ScoutName, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel_ScoutLayout.createSequentialGroup()
                                 .addGap(51, 51, 51)
-                                .addComponent(jLabel22)))
+                                .addComponent(jLabel_EG)))
                         .addGap(465, 465, 465))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel24)
-                                    .addComponent(jLabel23))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_ScoutLayout.createSequentialGroup()
+                        .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_ScoutLayout.createSequentialGroup()
+                                .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel_TotalPointsMatch)
+                                    .addComponent(jLabel_TotalPointsRobot))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel25)
+                                .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField_TotalPoints, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField_TotalPointsMatch, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_ScoutLayout.createSequentialGroup()
+                                .addComponent(jLabel_Comments)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jCheckBox12)
-                                    .addComponent(jCheckBox16)
-                                    .addComponent(jCheckBox15)
-                                    .addComponent(jCheckBox17)
-                                    .addComponent(jCheckBox14)
-                                    .addComponent(jCheckBox13))
+                                .addComponent(jTextField_Comments, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_ScoutLayout.createSequentialGroup()
+                                .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jCheckBox_EGB1)
+                                    .addComponent(jCheckBox_EGB6)
+                                    .addComponent(jCheckBox_EGB5)
+                                    .addComponent(jCheckBox_EGB3)
+                                    .addComponent(jCheckBox_EGB4)
+                                    .addComponent(jCheckBox_EGB2))
                                 .addGap(61, 61, 61)))
                         .addGap(399, 399, 399))))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+        jPanel_ScoutLayout.setVerticalGroup(
+            jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_ScoutLayout.createSequentialGroup()
+                .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel_ScoutLayout.createSequentialGroup()
                         .addGap(59, 59, 59)
-                        .addComponent(jLabel2)
+                        .addComponent(jLabel_Auto)
                         .addGap(22, 22, 22)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
+                        .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel_ScoutLayout.createSequentialGroup()
+                                .addComponent(jLabel_AutoBehavior)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jCheckBox1)
+                                .addComponent(jCheckBox_AutoB1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jCheckBox2)
+                                .addComponent(jCheckBox_AutoB2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jCheckBox3)
+                                .addComponent(jCheckBox_AutoB3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jCheckBox4))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jCheckBox_AutoB4))
+                            .addGroup(jPanel_ScoutLayout.createSequentialGroup()
+                                .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel_AutoUH)
+                                    .addComponent(jTextField_AutoUH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel_AutoUHAttempted)
+                                    .addComponent(jTextField_AutoUHAttempted, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel_AutoLH)
+                                    .addComponent(jTextField_AutoLH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel_AutoLHAttempted)
+                                    .addComponent(jTextField_AutoLHAttempt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel_Teleop))
+                    .addGroup(jPanel_ScoutLayout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel27))
+                        .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jSpinner_MatchNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel_MatchNumber))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel29))
+                        .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jSpinner_Placement, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel_Placement))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel30)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel_Color)
+                            .addComponent(jComboBox_Color, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel28))
+                        .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField_TeamNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel_TeamNumber))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel31))
+                        .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField_ScoutName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel_ScoutName))
                         .addGap(79, 79, 79)
-                        .addComponent(jLabel22))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel_EG))
+                    .addGroup(jPanel_ScoutLayout.createSequentialGroup()
                         .addGap(43, 43, 43)
-                        .addComponent(jLabel1)))
+                        .addComponent(jLabel_Field)))
                 .addGap(42, 42, 42)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel9)
+                .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel_ScoutLayout.createSequentialGroup()
+                        .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel_ScoutLayout.createSequentialGroup()
+                                .addComponent(jLabel_TeleopBehavior)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jCheckBox5)
+                                .addComponent(jCheckBox_TeleopB1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jCheckBox6)
+                                .addComponent(jCheckBox_TeleopB2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jCheckBox7))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel10)
+                                .addComponent(jCheckBox_TeleopB3))
+                            .addGroup(jPanel_ScoutLayout.createSequentialGroup()
+                                .addComponent(jLabel_TeleopIntakeBehavior)
                                 .addGap(8, 8, 8)
-                                .addComponent(jCheckBox9)
+                                .addComponent(jCheckBox_TeleopIB1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jCheckBox10)
+                                .addComponent(jCheckBox_TeleopIB2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jCheckBox11)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jCheckBox_TeleopIB3)))
+                        .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel_ScoutLayout.createSequentialGroup()
                                 .addGap(19, 19, 19)
-                                .addComponent(jButton1))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButton_Submit))
+                            .addGroup(jPanel_ScoutLayout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel11)
+                                .addComponent(jLabel_IntakePerf)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel12))
+                                .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jSlider_IntakePerf, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel_IntakeAll, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel_IntakeNone))
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel15)
+                                .addComponent(jLabel_ScorePerf)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel16))
+                                .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jSlider_ScorePerf, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel_ScoreAll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel_ScoreNone))
                                 .addGap(30, 30, 30)
-                                .addComponent(jLabel18)
+                                .addComponent(jLabel_DefPerf)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jSlider3, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel19))))
+                                .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jSlider_DefPerf, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel_DefAll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel_DefNone))))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel20)
-                            .addComponent(jLabel21)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jCheckBox12)
+                        .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel_TeleopUH)
+                            .addComponent(jLabel_TeleopLH)
+                            .addComponent(jTextField_TeleopUH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField_TeleopLH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel_ScoutLayout.createSequentialGroup()
+                        .addComponent(jCheckBox_EGB1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox13)
+                        .addComponent(jCheckBox_EGB2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox17)
+                        .addComponent(jCheckBox_EGB3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox14)
+                        .addComponent(jCheckBox_EGB4)
                         .addGap(5, 5, 5)
-                        .addComponent(jCheckBox15)
+                        .addComponent(jCheckBox_EGB5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox16)
+                        .addComponent(jCheckBox_EGB6)
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel23)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel_TotalPointsRobot)
+                            .addComponent(jTextField_TotalPoints, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel24)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel_TotalPointsMatch)
+                            .addComponent(jTextField_TotalPointsMatch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(50, 50, 50)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel25)
-                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(jPanel_ScoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel_Comments)
+                            .addComponent(jTextField_Comments, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(28, 28, 28))
         );
 
-        jTabbedPane3.addTab("Scout Match", jPanel1);
+        jTabbedPane_Tabs.addTab("Scout Match", jPanel_Scout);
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanel_GraphicsLayout = new javax.swing.GroupLayout(jPanel_Graphics);
+        jPanel_Graphics.setLayout(jPanel_GraphicsLayout);
+        jPanel_GraphicsLayout.setHorizontalGroup(
+            jPanel_GraphicsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 500, Short.MAX_VALUE)
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanel_GraphicsLayout.setVerticalGroup(
+            jPanel_GraphicsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 500, Short.MAX_VALUE)
         );
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All Teams", "Specific Team", "Alliance Color" }));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        jComboBox_DisplayScore.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All Teams", "Specific Team", "Alliance Color" }));
+        jComboBox_DisplayScore.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
+                jComboBox_DisplayScoreActionPerformed(evt);
             }
         });
 
-        jLabel26.setText("Display Score Type");
+        jLabel_DisplayScore.setText("Display Score Type");
 
-        jLabel32.setText("Display Data Type");
+        jLabel_DisplayData.setText("Display Data Type");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Total Score", "Auto", "TeleOp", "End Game" }));
-        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+        jComboBox_DisplayData.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Total Score", "Auto", "TeleOp", "End Game" }));
+        jComboBox_DisplayData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox3ActionPerformed(evt);
+                jComboBox_DisplayDataActionPerformed(evt);
             }
         });
 
-        jTextField10.addActionListener(new java.awt.event.ActionListener() {
+        jTextField_InsightsTeamNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField10ActionPerformed(evt);
+                jTextField_InsightsTeamNumberActionPerformed(evt);
             }
         });
 
-        jLabel33.setText("Team Number");
+        jLabel_InsightsTeamNumber.setText("Team Number");
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Blue", "Red" }));
-        jComboBox4.addActionListener(new java.awt.event.ActionListener() {
+        jComboBox_InsightsColor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Blue", "Red" }));
+        jComboBox_InsightsColor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox4ActionPerformed(evt);
+                jComboBox_InsightsColorActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Search Team");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButton_SearchTeam.setText("Search Team");
+        jButton_SearchTeam.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton_SearchTeamActionPerformed(evt);
             }
         });
 
-        jLabel34.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel34.setText("Top 10 Highest Match Scores");
+        jLabel_Top10Scores.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel_Top10Scores.setText("Top 10 Highest Match Scores");
 
-        jLabel35.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel35.setText("Top 10 Highest Average Match Scores");
+        jLabel_Top10AvgScoreMatch.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel_Top10AvgScoreMatch.setText("Top 10 Highest Average Match Scores");
 
-        jLabel36.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel36.setText("Top 10 Highest Average Scoring Performances");
+        jLabel_Top10AvgScorePerf.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel_Top10AvgScorePerf.setText("Top 10 Highest Average Scoring Performances");
 
-        jLabel37.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel37.setText("Top 10 Highest Average Intake Ratings");
+        jLabel_Top10AvgIntake.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel_Top10AvgIntake.setText("Top 10 Highest Average Intake Ratings");
 
-        jLabel38.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel38.setText("Top 10 Highest Average Defense Ratings");
+        jLabel_Top10AvgDef.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel_Top10AvgDef.setText("Top 10 Highest Average Defense Ratings");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jTable_TopMatchScores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
@@ -692,19 +686,19 @@ public class MainWindow extends javax.swing.JFrame {
                 "Match", "Total Score", "Red 1", "Red 2", "Red 3", "Blue 1", "Blue 2", "Blue 3"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
-        if (jTable2.getColumnModel().getColumnCount() > 0) {
-            jTable2.getColumnModel().getColumn(0).setPreferredWidth(20);
-            jTable2.getColumnModel().getColumn(1).setPreferredWidth(60);
-            jTable2.getColumnModel().getColumn(2).setHeaderValue("Red 1");
-            jTable2.getColumnModel().getColumn(3).setHeaderValue("Red 2");
-            jTable2.getColumnModel().getColumn(4).setHeaderValue("Red 3");
-            jTable2.getColumnModel().getColumn(5).setHeaderValue("Blue 1");
-            jTable2.getColumnModel().getColumn(6).setHeaderValue("Blue 2");
-            jTable2.getColumnModel().getColumn(7).setHeaderValue("Blue 3");
+        jScrollPane_TopMatchScores.setViewportView(jTable_TopMatchScores);
+        if (jTable_TopMatchScores.getColumnModel().getColumnCount() > 0) {
+            jTable_TopMatchScores.getColumnModel().getColumn(0).setPreferredWidth(20);
+            jTable_TopMatchScores.getColumnModel().getColumn(1).setPreferredWidth(60);
+            jTable_TopMatchScores.getColumnModel().getColumn(2).setHeaderValue("Red 1");
+            jTable_TopMatchScores.getColumnModel().getColumn(3).setHeaderValue("Red 2");
+            jTable_TopMatchScores.getColumnModel().getColumn(4).setHeaderValue("Red 3");
+            jTable_TopMatchScores.getColumnModel().getColumn(5).setHeaderValue("Blue 1");
+            jTable_TopMatchScores.getColumnModel().getColumn(6).setHeaderValue("Blue 2");
+            jTable_TopMatchScores.getColumnModel().getColumn(7).setHeaderValue("Blue 3");
         }
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        jTable_TopAvgMatchScores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -721,13 +715,13 @@ public class MainWindow extends javax.swing.JFrame {
                 "Team Number", "Average Score"
             }
         ));
-        jScrollPane3.setViewportView(jTable3);
-        if (jTable3.getColumnModel().getColumnCount() > 0) {
-            jTable3.getColumnModel().getColumn(0).setPreferredWidth(20);
-            jTable3.getColumnModel().getColumn(1).setPreferredWidth(60);
+        jScrollPane_TopAvgMatchScores.setViewportView(jTable_TopAvgMatchScores);
+        if (jTable_TopAvgMatchScores.getColumnModel().getColumnCount() > 0) {
+            jTable_TopAvgMatchScores.getColumnModel().getColumn(0).setPreferredWidth(20);
+            jTable_TopAvgMatchScores.getColumnModel().getColumn(1).setPreferredWidth(60);
         }
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        jTable_TopAvgScorePerf.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -744,13 +738,13 @@ public class MainWindow extends javax.swing.JFrame {
                 "Team Number", "Average Score"
             }
         ));
-        jScrollPane4.setViewportView(jTable4);
-        if (jTable4.getColumnModel().getColumnCount() > 0) {
-            jTable4.getColumnModel().getColumn(0).setPreferredWidth(20);
-            jTable4.getColumnModel().getColumn(1).setPreferredWidth(60);
+        jScrollPane_TopAvgScorePerf.setViewportView(jTable_TopAvgScorePerf);
+        if (jTable_TopAvgScorePerf.getColumnModel().getColumnCount() > 0) {
+            jTable_TopAvgScorePerf.getColumnModel().getColumn(0).setPreferredWidth(20);
+            jTable_TopAvgScorePerf.getColumnModel().getColumn(1).setPreferredWidth(60);
         }
 
-        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+        jTable_TopIntake.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -767,13 +761,13 @@ public class MainWindow extends javax.swing.JFrame {
                 "Team Number", "Average Score"
             }
         ));
-        jScrollPane5.setViewportView(jTable5);
-        if (jTable5.getColumnModel().getColumnCount() > 0) {
-            jTable5.getColumnModel().getColumn(0).setPreferredWidth(20);
-            jTable5.getColumnModel().getColumn(1).setPreferredWidth(60);
+        jScrollPane_TopIntake.setViewportView(jTable_TopIntake);
+        if (jTable_TopIntake.getColumnModel().getColumnCount() > 0) {
+            jTable_TopIntake.getColumnModel().getColumn(0).setPreferredWidth(20);
+            jTable_TopIntake.getColumnModel().getColumn(1).setPreferredWidth(60);
         }
 
-        jTable6.setModel(new javax.swing.table.DefaultTableModel(
+        jTable_TopDef.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -790,120 +784,120 @@ public class MainWindow extends javax.swing.JFrame {
                 "Team Number", "Average Score"
             }
         ));
-        jScrollPane6.setViewportView(jTable6);
-        if (jTable6.getColumnModel().getColumnCount() > 0) {
-            jTable6.getColumnModel().getColumn(0).setPreferredWidth(20);
-            jTable6.getColumnModel().getColumn(1).setPreferredWidth(60);
+        jScrollPane_TopDef.setViewportView(jTable_TopDef);
+        if (jTable_TopDef.getColumnModel().getColumnCount() > 0) {
+            jTable_TopDef.getColumnModel().getColumn(0).setPreferredWidth(20);
+            jTable_TopDef.getColumnModel().getColumn(1).setPreferredWidth(60);
         }
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel_InsightsLayout = new javax.swing.GroupLayout(jPanel_Insights);
+        jPanel_Insights.setLayout(jPanel_InsightsLayout);
+        jPanel_InsightsLayout.setHorizontalGroup(
+            jPanel_InsightsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_InsightsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel_InsightsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel_Graphics, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel_InsightsLayout.createSequentialGroup()
+                        .addGroup(jPanel_InsightsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel_DisplayScore, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel_DisplayData, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(28, 28, 28)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel_InsightsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jComboBox_DisplayData, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBox_DisplayScore, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel_InsightsTeamNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel_InsightsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel_InsightsLayout.createSequentialGroup()
+                                .addComponent(jTextField_InsightsTeamNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButton2))))
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jComboBox_InsightsColor, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton_SearchTeam))))
+                .addGroup(jPanel_InsightsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel_InsightsLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 875, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel_InsightsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane_TopMatchScores, javax.swing.GroupLayout.PREFERRED_SIZE, 875, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel_InsightsLayout.createSequentialGroup()
                                 .addGap(32, 32, 32)
-                                .addComponent(jLabel37)
+                                .addComponent(jLabel_Top10AvgIntake)
                                 .addGap(144, 144, 144)
-                                .addComponent(jLabel38))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel_Top10AvgDef))
+                            .addGroup(jPanel_InsightsLayout.createSequentialGroup()
+                                .addGroup(jPanel_InsightsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel_InsightsLayout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel35)
+                                        .addComponent(jLabel_Top10AvgScoreMatch)
                                         .addGap(109, 109, 109))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_InsightsLayout.createSequentialGroup()
+                                        .addComponent(jScrollPane_TopAvgMatchScores, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(46, 46, 46)))
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel36)
-                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel_InsightsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel_Top10AvgScorePerf)
+                                    .addComponent(jScrollPane_TopAvgScorePerf, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel_InsightsLayout.createSequentialGroup()
                                 .addGap(16, 16, 16)
-                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jScrollPane_TopIntake, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(46, 46, 46)
-                                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jScrollPane_TopDef, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(184, 184, 184))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGroup(jPanel_InsightsLayout.createSequentialGroup()
                         .addGap(295, 295, 295)
-                        .addComponent(jLabel34)
+                        .addComponent(jLabel_Top10Scores)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        jPanel_InsightsLayout.setVerticalGroup(
+            jPanel_InsightsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_InsightsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel_Graphics, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel26)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel33)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel_InsightsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox_DisplayScore, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_DisplayScore)
+                    .addComponent(jTextField_InsightsTeamNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_InsightsTeamNumber)
+                    .addComponent(jComboBox_InsightsColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel_InsightsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel_InsightsLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel32))
+                        .addGroup(jPanel_InsightsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jComboBox_DisplayData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel_DisplayData))
                         .addContainerGap(159, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGroup(jPanel_InsightsLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
+                        .addComponent(jButton_SearchTeam)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(jPanel3Layout.createSequentialGroup()
+            .addGroup(jPanel_InsightsLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addComponent(jLabel34)
+                .addComponent(jLabel_Top10Scores)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane_TopMatchScores, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel35)
-                    .addComponent(jLabel36))
+                .addGroup(jPanel_InsightsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel_Top10AvgScoreMatch)
+                    .addComponent(jLabel_Top10AvgScorePerf))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel_InsightsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane_TopAvgMatchScores, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane_TopAvgScorePerf, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel37)
-                    .addComponent(jLabel38))
+                .addGroup(jPanel_InsightsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel_Top10AvgIntake)
+                    .addComponent(jLabel_Top10AvgDef))
                 .addGap(22, 22, 22)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel_InsightsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane_TopIntake, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane_TopDef, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
-        jTabbedPane3.addTab("Insights", jPanel3);
+        jTabbedPane_Tabs.addTab("Insights", jPanel_Insights);
 
-        jMenu1.setText("File");
+        jMenu_File.setText("File");
 
         jMenuItem_Save.setText("Save");
         jMenuItem_Save.addActionListener(new java.awt.event.ActionListener() {
@@ -911,7 +905,7 @@ public class MainWindow extends javax.swing.JFrame {
                 jMenuItem_SaveActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem_Save);
+        jMenu_File.add(jMenuItem_Save);
 
         jMenuItem_SaveAs.setText("Save As");
         jMenuItem_SaveAs.addActionListener(new java.awt.event.ActionListener() {
@@ -919,7 +913,7 @@ public class MainWindow extends javax.swing.JFrame {
                 jMenuItem_SaveAsActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem_SaveAs);
+        jMenu_File.add(jMenuItem_SaveAs);
 
         jMenuItem_Open.setText("Open");
         jMenuItem_Open.addActionListener(new java.awt.event.ActionListener() {
@@ -927,137 +921,32 @@ public class MainWindow extends javax.swing.JFrame {
                 jMenuItem_OpenActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem_Open);
+        jMenu_File.add(jMenuItem_Open);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar.add(jMenu_File);
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        jMenu_Edit.setText("Edit");
+        jMenuBar.add(jMenu_Edit);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(jMenuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1469, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTabbedPane_Tabs, javax.swing.GroupLayout.PREFERRED_SIZE, 1469, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTabbedPane_Tabs, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-        clearHighlights();
-        if (!checkSubmissions()) {
-            return;
-        }
-
-        Auto a;
-        if (jCheckBox4.isSelected()) {
-            a = new Auto(Integer.parseInt(jTextField4.getText()), Integer.parseInt(jTextField2.getText()), Integer.parseInt(jTextField3.getText()), Integer.parseInt(jTextField1.getText()), 2, jCheckBox2.isSelected());
-        } else if (jCheckBox3.isSelected()) {
-            a = new Auto(Integer.parseInt(jTextField4.getText()), Integer.parseInt(jTextField2.getText()), Integer.parseInt(jTextField3.getText()), Integer.parseInt(jTextField1.getText()), 1, jCheckBox2.isSelected());
-        } else {
-            a = new Auto(Integer.parseInt(jTextField4.getText()), Integer.parseInt(jTextField2.getText()), Integer.parseInt(jTextField3.getText()), Integer.parseInt(jTextField1.getText()), 0, jCheckBox2.isSelected());
-        }
-
-        TeleOp t;
-        int tb;
-        if (jCheckBox7.isSelected()) {
-            tb = 3;
-        } else if (jCheckBox6.isSelected()) {
-            tb = 2;
-        } else {
-            tb = 1;
-        }
-
-        int cb;
-        if (jCheckBox11.isSelected()) {
-            cb = 3;
-        } else if (jCheckBox10.isSelected()) {
-            cb = 2;
-        } else {
-            cb = 1;
-        }
-        t = new TeleOp(Integer.parseInt(jTextField5.getText()), Integer.parseInt(jTextField7.getText()), tb, 0.01 * jSlider1.getValue(), 0.01 * jSlider2.getValue(), 0.01 * jSlider3.getValue(), cb);
-
-        EndGame e;
-        if (jCheckBox16.isSelected()) {
-            e = new EndGame(5);
-        } else if (jCheckBox15.isSelected()) {
-            e = new EndGame(4);
-        } else if (jCheckBox14.isSelected()) {
-            e = new EndGame(3);
-        } else if (jCheckBox17.isSelected()) {
-            e = new EndGame(2);
-        } else {
-            e = new EndGame(1);
-        }
-
-        Robot r = new Robot((Integer) (jSpinner1.getValue()), (String) (jComboBox1.getSelectedItem()), (Integer) (jSpinner2.getValue()), Integer.parseInt(jTextField11.getText()), jTextField12.getText(), jTextField9.getText(), a, t, e);
-
-        if (matches.containsKey((Integer) (jSpinner1.getValue()))) {
-
-            matches.get((Integer) (jSpinner1.getValue())).setRobot(r);
-        } else {
-
-            Match m = new Match((Integer) (jSpinner1.getValue()));
-            m.setRobot(r);
-
-            matches.put((Integer) (jSpinner1.getValue()), m);
-        }
-
-        updateRawTable();
-        
-        //Clear all fields after submitting a match
-        jCheckBox1.setSelected(false);
-        jCheckBox2.setSelected(false);
-        jCheckBox3.setSelected(false);
-        jCheckBox4.setSelected(false);
-        jCheckBox5.setSelected(false);
-        jCheckBox6.setSelected(false);
-        jCheckBox7.setSelected(false);
-        jCheckBox9.setSelected(false);
-        jCheckBox10.setSelected(false);
-        jCheckBox11.setSelected(false);
-        jCheckBox12.setSelected(false);
-        jCheckBox13.setSelected(false);
-        jCheckBox14.setSelected(false);
-        jCheckBox15.setSelected(false);
-        jCheckBox16.setSelected(false);
-        jCheckBox17.setSelected(false);
-        
-        
-        jTextField1.setText("");
-        jTextField2.setText("");
-        jTextField3.setText("");
-        jTextField4.setText("");
-        jTextField5.setText("");
-        jTextField6.setText("");
-        jTextField7.setText("");
-        jTextField8.setText("");
-        jTextField9.setText("");
-        jTextField11.setText("");
-        jTextField12.setText("");
-        
-        jSlider1.setValue(50);
-        jSlider2.setValue(50);
-        jSlider3.setValue(50);
-        
-        jSpinner1.setValue(0);
-        jSpinner2.setValue(0);
-        
-        jComboBox1.setSelectedIndex(0);
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jMenuItem_SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_SaveActionPerformed
         // Test to see if there is a current file, then act accordingly
@@ -1075,7 +964,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jMenuItem_SaveAsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_SaveAsActionPerformed
 // Prompts the user for a file to sve location and name. then creates
-        // a VDModel with  the <cases> and <schedules> objects. The model is
+        // a matchModel with the <matches> object. The model is
         // then saved to the disk.
 
         JFileChooser jfc = new JFileChooser();
@@ -1095,7 +984,6 @@ public class MainWindow extends javax.swing.JFrame {
         // a matchModel with  the <matches> object saved in the file on the disk. 
         // The model is then used to run updateRawTable.
         JFileChooser jfc = new JFileChooser();
-        //table_cases.removeAll();
 
         if (jfc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
             try {
@@ -1144,136 +1032,281 @@ public class MainWindow extends javax.swing.JFrame {
             }
         }    }//GEN-LAST:event_jMenuItem_OpenActionPerformed
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+    private void jPanel_ScoutMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseMoved
+        int score = 0;
+        score += jTextField_AutoUH.getText().equals("") ? 0 : Integer.parseInt(jTextField_AutoUH.getText()) * 4;
+        score += jTextField_AutoLH.getText().equals("") ? 0 : Integer.parseInt(jTextField_AutoLH.getText()) * 2;
+        
+        score += jTextField_TeleopUH.getText().equals("") ? 0 : Integer.parseInt(jTextField_TeleopUH.getText()) * 2;
+        score += jTextField_TeleopLH.getText().equals("") ? 0 : Integer.parseInt(jTextField_TeleopLH.getText()) * 1;
+        
+        if(jCheckBox_EGB6.isSelected()) {
+            score += 15;
+        }
+        else if(jCheckBox_EGB5.isSelected()) {
+            score += 10;
+        }
+        else if(jCheckBox_EGB4.isSelected()) {
+            score += 6;
+        }
+        else if (jCheckBox_EGB3.isSelected()) {
+            score += 4;
+        }
+        
+        jTextField_TotalPoints.setText(Integer.toString(score));
+        
+        if (matches.containsKey((int)(jSpinner_MatchNumber.getValue()))) {
+            jTextField_TotalPointsMatch.setText("(" + Integer.toString(matches.get((int)(jSpinner_MatchNumber.getValue())).getMatchScore(Match.AllianceColor.ALL)) + "): RED: " + Integer.toString(matches.get((int)(jSpinner_MatchNumber.getValue())).getMatchScore(Match.AllianceColor.RED)) + " / BLUE: " + Integer.toString(matches.get((int)(jSpinner_MatchNumber.getValue())).getMatchScore(Match.AllianceColor.BLUE)));
+        }
+        
+    }//GEN-LAST:event_jPanel1MouseMoved
+
+    private void jButton_SearchTeamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SearchTeamActionPerformed
+        //Modifiy GraphicsPanelScore based on an alliance color that is selected
+        Match.AllianceColor ac;
+        if (jComboBox_InsightsColor.getSelectedIndex() != 0) {
+            ac = Match.AllianceColor.RED;
+        }
+        else {
+            ac = Match.AllianceColor.BLUE;
+        }
+
+        switch (jComboBox_DisplayData.getSelectedIndex()){
+            case 1 -> ((GraphicsPanelScore)(jPanel_Graphics)).paintData(matches, jTextField_InsightsTeamNumber.getText(), GraphicsPanelScore.DataType.TEAM, GraphicsPanelScore.ScoreType.AUTO, ac);
+            case 2 -> ((GraphicsPanelScore)(jPanel_Graphics)).paintData(matches, jTextField_InsightsTeamNumber.getText(), GraphicsPanelScore.DataType.TEAM, GraphicsPanelScore.ScoreType.END_GAME, ac);
+            case 3 -> ((GraphicsPanelScore)(jPanel_Graphics)).paintData(matches, jTextField_InsightsTeamNumber.getText(), GraphicsPanelScore.DataType.TEAM, GraphicsPanelScore.ScoreType.TELEOP, ac);
+            default -> ((GraphicsPanelScore)(jPanel_Graphics)).paintData(matches, jTextField_InsightsTeamNumber.getText(), GraphicsPanelScore.DataType.TEAM, GraphicsPanelScore.ScoreType.ALL_POINTS, ac);
+        }
+    }//GEN-LAST:event_jButton_SearchTeamActionPerformed
+
+    private void jComboBox_InsightsColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_InsightsColorActionPerformed
+        jComboBox_DisplayScoreActionPerformed(null);
+    }//GEN-LAST:event_jComboBox_InsightsColorActionPerformed
+
+    private void jTextField_InsightsTeamNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_InsightsTeamNumberActionPerformed
+        //Modifies the GraphicsPanelScore based on an alliance color that is selected.
+        Match.AllianceColor ac;
+        if (jComboBox_InsightsColor.getSelectedIndex() != 0) {
+            ac = Match.AllianceColor.RED;
+        }
+        else {
+            ac = Match.AllianceColor.BLUE;
+        }
+
+        switch (jComboBox_DisplayData.getSelectedIndex()){
+            case 1 -> ((GraphicsPanelScore)(jPanel_Graphics)).paintData(matches, jTextField_InsightsTeamNumber.getText(), GraphicsPanelScore.DataType.TEAM, GraphicsPanelScore.ScoreType.AUTO, ac);
+            case 2 -> ((GraphicsPanelScore)(jPanel_Graphics)).paintData(matches, jTextField_InsightsTeamNumber.getText(), GraphicsPanelScore.DataType.TEAM, GraphicsPanelScore.ScoreType.TELEOP, ac);
+            case 3 -> ((GraphicsPanelScore)(jPanel_Graphics)).paintData(matches, jTextField_InsightsTeamNumber.getText(), GraphicsPanelScore.DataType.TEAM, GraphicsPanelScore.ScoreType.END_GAME, ac);
+            default -> ((GraphicsPanelScore)(jPanel_Graphics)).paintData(matches, jTextField_InsightsTeamNumber.getText(), GraphicsPanelScore.DataType.TEAM, GraphicsPanelScore.ScoreType.ALL_POINTS, ac);
+        }
+    }//GEN-LAST:event_jTextField_InsightsTeamNumberActionPerformed
+
+    private void jComboBox_DisplayDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_DisplayDataActionPerformed
+        // Modify the graphicspanelscore based on the item selected in a combo box for an individual team
+
         GraphicsPanelScore.DataType dt;
-        switch (jComboBox2.getSelectedIndex()) {
+        switch (jComboBox_DisplayScore.getSelectedIndex()) {
             case 0:
-                jLabel33.setVisible(false);
-                jLabel33.setText("Team Number");
-                jTextField10.setVisible(false);
-                jTextField10.setText("");
-                jComboBox4.setVisible(false);
-                jButton2.setVisible(false);
-                dt = GraphicsPanelScore.DataType.ALL;
-                break;
+            jLabel_InsightsTeamNumber.setVisible(false);
+            jLabel_InsightsTeamNumber.setText("Team Number");
+            jTextField_InsightsTeamNumber.setVisible(false);
+            jComboBox_InsightsColor.setVisible(false);
+            jButton_SearchTeam.setVisible(false);
+            dt = GraphicsPanelScore.DataType.ALL;
+            break;
             case 1:
-                jLabel33.setVisible(true);
-                jLabel33.setText("Team Number");
-                jTextField10.setVisible(true);
-                jTextField10.setText("");
-                jComboBox4.setVisible(false);
-                jButton2.setVisible(true);
-                dt = GraphicsPanelScore.DataType.TEAM;
-                break;
+            jLabel_InsightsTeamNumber.setVisible(true);
+            jLabel_InsightsTeamNumber.setText("Team Number");
+            jTextField_InsightsTeamNumber.setVisible(true);
+            jComboBox_InsightsColor.setVisible(false);
+            jButton_SearchTeam.setVisible(true);
+            dt = GraphicsPanelScore.DataType.TEAM;
+            break;
             default:
-                jLabel33.setVisible(true);
-                jLabel33.setText("Alliance Color");
-                jTextField10.setVisible(false);
-                jTextField10.setText("");
-                jComboBox4.setVisible(true);
-                jButton2.setVisible(false);
-                dt = GraphicsPanelScore.DataType.ALLIANCE;
-                break;
+            jLabel_InsightsTeamNumber.setVisible(true);
+            jLabel_InsightsTeamNumber.setText("Alliance Color");
+            jTextField_InsightsTeamNumber.setVisible(false);
+            jComboBox_InsightsColor.setVisible(true);
+            jButton_SearchTeam.setVisible(false);
+            dt = GraphicsPanelScore.DataType.ALLIANCE;
+            break;
         }
-        
+
+        //sets the Match.AllianceColor value to red or blue based on a combobox
         Match.AllianceColor ac;
-        if (jComboBox4.getSelectedIndex() != 0) {
+        if (jComboBox_InsightsColor.getSelectedIndex() != 0) {
             ac = Match.AllianceColor.RED;
         }
         else {
             ac = Match.AllianceColor.BLUE;
         }
-        
-        switch (jComboBox3.getSelectedIndex()){
-            case 1 -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), dt, GraphicsPanelScore.ScoreType.AUTO, ac);
-            case 2 -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), dt, GraphicsPanelScore.ScoreType.TELEOP, ac);
-            case 3 -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), dt, GraphicsPanelScore.ScoreType.END_GAME, ac);
-            default -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), dt, GraphicsPanelScore.ScoreType.ALL_POINTS, ac);
-        }
-    }//GEN-LAST:event_jComboBox2ActionPerformed
 
-    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+        //Uses a switch to determine what section of game points to display in the graph
+        switch (jComboBox_DisplayData.getSelectedIndex()){
+            case 1 -> ((GraphicsPanelScore)(jPanel_Graphics)).paintData(matches, jTextField_InsightsTeamNumber.getText(), dt, GraphicsPanelScore.ScoreType.AUTO, ac);
+            case 2 -> ((GraphicsPanelScore)(jPanel_Graphics)).paintData(matches, jTextField_InsightsTeamNumber.getText(), dt, GraphicsPanelScore.ScoreType.TELEOP, ac);
+            case 3 -> ((GraphicsPanelScore)(jPanel_Graphics)).paintData(matches, jTextField_InsightsTeamNumber.getText(), dt, GraphicsPanelScore.ScoreType.END_GAME, ac);
+            default -> ((GraphicsPanelScore)(jPanel_Graphics)).paintData(matches, jTextField_InsightsTeamNumber.getText(), dt, GraphicsPanelScore.ScoreType.ALL_POINTS, ac);
+        }
+    }//GEN-LAST:event_jComboBox_DisplayDataActionPerformed
+
+    private void jComboBox_DisplayScoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_DisplayScoreActionPerformed
+        // Creates a specific graphics panel determined by the item selected in the jComboBox_DisplayScore combobox using a switch
+
         GraphicsPanelScore.DataType dt;
-        switch (jComboBox2.getSelectedIndex()) {
+        switch (jComboBox_DisplayScore.getSelectedIndex()) {
             case 0:
-                jLabel33.setVisible(false);
-                jLabel33.setText("Team Number");
-                jTextField10.setVisible(false);
-                jComboBox4.setVisible(false);
-                jButton2.setVisible(false);
-                dt = GraphicsPanelScore.DataType.ALL;
-                break;
+            jLabel_InsightsTeamNumber.setVisible(false);
+            jLabel_InsightsTeamNumber.setText("Team Number");
+            jTextField_InsightsTeamNumber.setVisible(false);
+            jTextField_InsightsTeamNumber.setText("");
+            jComboBox_InsightsColor.setVisible(false);
+            jButton_SearchTeam.setVisible(false);
+            dt = GraphicsPanelScore.DataType.ALL;
+            break;
             case 1:
-                jLabel33.setVisible(true);
-                jLabel33.setText("Team Number");
-                jTextField10.setVisible(true);
-                jComboBox4.setVisible(false);
-                jButton2.setVisible(true);
-                dt = GraphicsPanelScore.DataType.TEAM;
-                break;
+            jLabel_InsightsTeamNumber.setVisible(true);
+            jLabel_InsightsTeamNumber.setText("Team Number");
+            jTextField_InsightsTeamNumber.setVisible(true);
+            jTextField_InsightsTeamNumber.setText("");
+            jComboBox_InsightsColor.setVisible(false);
+            jButton_SearchTeam.setVisible(true);
+            dt = GraphicsPanelScore.DataType.TEAM;
+            break;
             default:
-                jLabel33.setVisible(true);
-                jLabel33.setText("Alliance Color");
-                jTextField10.setVisible(false);
-                jComboBox4.setVisible(true);
-                jButton2.setVisible(false);
-                dt = GraphicsPanelScore.DataType.ALLIANCE;
-                break;
+            jLabel_InsightsTeamNumber.setVisible(true);
+            jLabel_InsightsTeamNumber.setText("Alliance Color");
+            jTextField_InsightsTeamNumber.setVisible(false);
+            jTextField_InsightsTeamNumber.setText("");
+            jComboBox_InsightsColor.setVisible(true);
+            jButton_SearchTeam.setVisible(false);
+            dt = GraphicsPanelScore.DataType.ALLIANCE;
+            break;
         }
-        
+
+        //sets the Match.AllianceColor value to red or blue based on a combobox
         Match.AllianceColor ac;
-        if (jComboBox4.getSelectedIndex() != 0) {
+        if (jComboBox_InsightsColor.getSelectedIndex() != 0) {
             ac = Match.AllianceColor.RED;
         }
         else {
             ac = Match.AllianceColor.BLUE;
         }
-        
-        switch (jComboBox3.getSelectedIndex()){
-            case 1 -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), dt, GraphicsPanelScore.ScoreType.AUTO, ac);
-            case 2 -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), dt, GraphicsPanelScore.ScoreType.TELEOP, ac); 
-            case 3 -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), dt, GraphicsPanelScore.ScoreType.END_GAME, ac);
-            default -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), dt, GraphicsPanelScore.ScoreType.ALL_POINTS, ac);
+        //Uses a switch to determine what section of game points to display in the graph
+        switch (jComboBox_DisplayData.getSelectedIndex()){
+            case 1 -> ((GraphicsPanelScore)(jPanel_Graphics)).paintData(matches, jTextField_InsightsTeamNumber.getText(), dt, GraphicsPanelScore.ScoreType.AUTO, ac);
+            case 2 -> ((GraphicsPanelScore)(jPanel_Graphics)).paintData(matches, jTextField_InsightsTeamNumber.getText(), dt, GraphicsPanelScore.ScoreType.TELEOP, ac);
+            case 3 -> ((GraphicsPanelScore)(jPanel_Graphics)).paintData(matches, jTextField_InsightsTeamNumber.getText(), dt, GraphicsPanelScore.ScoreType.END_GAME, ac);
+            default -> ((GraphicsPanelScore)(jPanel_Graphics)).paintData(matches, jTextField_InsightsTeamNumber.getText(), dt, GraphicsPanelScore.ScoreType.ALL_POINTS, ac);
         }
-    }//GEN-LAST:event_jComboBox3ActionPerformed
+    }//GEN-LAST:event_jComboBox_DisplayScoreActionPerformed
 
-    private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
-        jComboBox2ActionPerformed(null);
-    }//GEN-LAST:event_jComboBox4ActionPerformed
+    
 
-    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
-        Match.AllianceColor ac;
-        if (jComboBox4.getSelectedIndex() != 0) {
-            ac = Match.AllianceColor.RED;
+    private void jButton_SubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SubmitActionPerformed
+        //Takes all data from user filled fields and stores them into a <match> inside the matches treemap.
+        clearHighlights();
+        if (!checkSubmissions()) {
+            return;
         }
-        else {
-            ac = Match.AllianceColor.BLUE;
+        //uses data classes for auto, teleop, robot and endgame as well as switches located inside those data classes to determine values for the match that will be stored
+        //the match treemap.
+        Auto a;
+        if (jCheckBox_AutoB4.isSelected()) {
+            a = new Auto(Integer.parseInt(jTextField_AutoUH.getText()), Integer.parseInt(jTextField_AutoUHAttempted.getText()), Integer.parseInt(jTextField_AutoLH.getText()), Integer.parseInt(jTextField_AutoLHAttempt.getText()), 2, jCheckBox_AutoB2.isSelected());
+        } else if (jCheckBox_AutoB3.isSelected()) {
+            a = new Auto(Integer.parseInt(jTextField_AutoUH.getText()), Integer.parseInt(jTextField_AutoUHAttempted.getText()), Integer.parseInt(jTextField_AutoLH.getText()), Integer.parseInt(jTextField_AutoLHAttempt.getText()), 1, jCheckBox_AutoB2.isSelected());
+        } else {
+            a = new Auto(Integer.parseInt(jTextField_AutoUH.getText()), Integer.parseInt(jTextField_AutoUHAttempted.getText()), Integer.parseInt(jTextField_AutoLH.getText()), Integer.parseInt(jTextField_AutoLHAttempt.getText()), 0, jCheckBox_AutoB2.isSelected());
         }
-        
-        switch (jComboBox3.getSelectedIndex()){
-            case 1 -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), GraphicsPanelScore.DataType.TEAM, GraphicsPanelScore.ScoreType.AUTO, ac);
-            case 2 -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), GraphicsPanelScore.DataType.TEAM, GraphicsPanelScore.ScoreType.TELEOP, ac);
-            case 3 -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), GraphicsPanelScore.DataType.TEAM, GraphicsPanelScore.ScoreType.END_GAME, ac);
-            default -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), GraphicsPanelScore.DataType.TEAM, GraphicsPanelScore.ScoreType.ALL_POINTS, ac);
-        }
-    }//GEN-LAST:event_jTextField10ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Match.AllianceColor ac;
-        if (jComboBox4.getSelectedIndex() != 0) {
-            ac = Match.AllianceColor.RED;
+        TeleOp t;
+        int tb;
+        if (jCheckBox_TeleopB3.isSelected()) {
+            tb = 3;
+        } else if (jCheckBox_TeleopB2.isSelected()) {
+            tb = 2;
+        } else {
+            tb = 1;
         }
-        else {
-            ac = Match.AllianceColor.BLUE;
+
+        int cb;
+        if (jCheckBox_TeleopIB3.isSelected()) {
+            cb = 3;
+        } else if (jCheckBox_TeleopIB2.isSelected()) {
+            cb = 2;
+        } else {
+            cb = 1;
         }
-        
-        switch (jComboBox3.getSelectedIndex()){
-            case 1 -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), GraphicsPanelScore.DataType.TEAM, GraphicsPanelScore.ScoreType.AUTO, ac);
-            case 2 -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), GraphicsPanelScore.DataType.TEAM, GraphicsPanelScore.ScoreType.END_GAME, ac);
-            case 3 -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), GraphicsPanelScore.DataType.TEAM, GraphicsPanelScore.ScoreType.TELEOP, ac);
-            default -> ((GraphicsPanelScore)(jPanel5)).paintData(matches, jTextField10.getText(), GraphicsPanelScore.DataType.TEAM, GraphicsPanelScore.ScoreType.ALL_POINTS, ac);
+        t = new TeleOp(Integer.parseInt(jTextField_TeleopUH.getText()), Integer.parseInt(jTextField_TeleopLH.getText()), tb, 0.01 * jSlider_IntakePerf.getValue(), 0.01 * jSlider_ScorePerf.getValue(), 0.01 * jSlider_DefPerf.getValue(), cb);
+
+        EndGame e;
+        if (jCheckBox_EGB6.isSelected()) {
+            e = new EndGame(5);
+        } else if (jCheckBox_EGB5.isSelected()) {
+            e = new EndGame(4);
+        } else if (jCheckBox_EGB4.isSelected()) {
+            e = new EndGame(3);
+        } else if (jCheckBox_EGB3.isSelected()) {
+            e = new EndGame(2);
+        } else {
+            e = new EndGame(1);
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+
+        Robot r = new Robot((Integer) (jSpinner_MatchNumber.getValue()), (String) (jComboBox_Color.getSelectedItem()), (Integer) (jSpinner_Placement.getValue()), Integer.parseInt(jTextField_TeamNumber.getText()), jTextField_ScoutName.getText(), jTextField_Comments.getText(), a, t, e);
+
+        if (matches.containsKey((Integer) (jSpinner_MatchNumber.getValue()))) {
+
+            matches.get((Integer) (jSpinner_MatchNumber.getValue())).setRobot(r);
+        } else {
+
+            Match m = new Match((Integer) (jSpinner_MatchNumber.getValue()));
+            m.setRobot(r);
+
+            matches.put((Integer) (jSpinner_MatchNumber.getValue()), m);
+        }
+
+        updateRawTable();
+
+        //Clear all fields after submitting a match
+        jCheckBox_AutoB1.setSelected(false);
+        jCheckBox_AutoB2.setSelected(false);
+        jCheckBox_AutoB3.setSelected(false);
+        jCheckBox_AutoB4.setSelected(false);
+        jCheckBox_TeleopB1.setSelected(false);
+        jCheckBox_TeleopB2.setSelected(false);
+        jCheckBox_TeleopB3.setSelected(false);
+        jCheckBox_TeleopIB1.setSelected(false);
+        jCheckBox_TeleopIB2.setSelected(false);
+        jCheckBox_TeleopIB3.setSelected(false);
+        jCheckBox_EGB1.setSelected(false);
+        jCheckBox_EGB2.setSelected(false);
+        jCheckBox_EGB4.setSelected(false);
+        jCheckBox_EGB5.setSelected(false);
+        jCheckBox_EGB6.setSelected(false);
+        jCheckBox_EGB3.setSelected(false);
+
+        jTextField_AutoLHAttempt.setText("");
+        jTextField_AutoUHAttempted.setText("");
+        jTextField_AutoLH.setText("");
+        jTextField_AutoUH.setText("");
+        jTextField_TeleopUH.setText("");
+        jTextField_TotalPoints.setText("");
+        jTextField_TeleopLH.setText("");
+        jTextField_TotalPointsMatch.setText("");
+        jTextField_Comments.setText("");
+        jTextField_TeamNumber.setText("");
+        jTextField_ScoutName.setText("");
+
+        jSlider_IntakePerf.setValue(50);
+        jSlider_ScorePerf.setValue(50);
+        jSlider_DefPerf.setValue(50);
+
+        jSpinner_MatchNumber.setValue(0);
+        jSpinner_Placement.setValue(0);
+
+        jComboBox_Color.setSelectedIndex(0);
+    }//GEN-LAST:event_jButton_SubmitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1311,152 +1344,152 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox10;
-    private javax.swing.JCheckBox jCheckBox11;
-    private javax.swing.JCheckBox jCheckBox12;
-    private javax.swing.JCheckBox jCheckBox13;
-    private javax.swing.JCheckBox jCheckBox14;
-    private javax.swing.JCheckBox jCheckBox15;
-    private javax.swing.JCheckBox jCheckBox16;
-    private javax.swing.JCheckBox jCheckBox17;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
-    private javax.swing.JCheckBox jCheckBox6;
-    private javax.swing.JCheckBox jCheckBox7;
-    private javax.swing.JCheckBox jCheckBox9;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JButton jButton_SearchTeam;
+    private javax.swing.JButton jButton_Submit;
+    private javax.swing.JCheckBox jCheckBox_AutoB1;
+    private javax.swing.JCheckBox jCheckBox_AutoB2;
+    private javax.swing.JCheckBox jCheckBox_AutoB3;
+    private javax.swing.JCheckBox jCheckBox_AutoB4;
+    private javax.swing.JCheckBox jCheckBox_EGB1;
+    private javax.swing.JCheckBox jCheckBox_EGB2;
+    private javax.swing.JCheckBox jCheckBox_EGB3;
+    private javax.swing.JCheckBox jCheckBox_EGB4;
+    private javax.swing.JCheckBox jCheckBox_EGB5;
+    private javax.swing.JCheckBox jCheckBox_EGB6;
+    private javax.swing.JCheckBox jCheckBox_TeleopB1;
+    private javax.swing.JCheckBox jCheckBox_TeleopB2;
+    private javax.swing.JCheckBox jCheckBox_TeleopB3;
+    private javax.swing.JCheckBox jCheckBox_TeleopIB1;
+    private javax.swing.JCheckBox jCheckBox_TeleopIB2;
+    private javax.swing.JCheckBox jCheckBox_TeleopIB3;
+    private javax.swing.JComboBox<String> jComboBox_Color;
+    private javax.swing.JComboBox<String> jComboBox_DisplayData;
+    private javax.swing.JComboBox<String> jComboBox_DisplayScore;
+    private javax.swing.JComboBox<String> jComboBox_InsightsColor;
+    private javax.swing.JLabel jLabel_Auto;
+    private javax.swing.JLabel jLabel_AutoBehavior;
+    private javax.swing.JLabel jLabel_AutoLH;
+    private javax.swing.JLabel jLabel_AutoLHAttempted;
+    private javax.swing.JLabel jLabel_AutoUH;
+    private javax.swing.JLabel jLabel_AutoUHAttempted;
+    private javax.swing.JLabel jLabel_Color;
+    private javax.swing.JLabel jLabel_Comments;
+    private javax.swing.JLabel jLabel_DefAll;
+    private javax.swing.JLabel jLabel_DefNone;
+    private javax.swing.JLabel jLabel_DefPerf;
+    private javax.swing.JLabel jLabel_DisplayData;
+    private javax.swing.JLabel jLabel_DisplayScore;
+    private javax.swing.JLabel jLabel_EG;
+    private javax.swing.JLabel jLabel_Field;
+    private javax.swing.JLabel jLabel_InsightsTeamNumber;
+    private javax.swing.JLabel jLabel_IntakeAll;
+    private javax.swing.JLabel jLabel_IntakeNone;
+    private javax.swing.JLabel jLabel_IntakePerf;
+    private javax.swing.JLabel jLabel_MatchNumber;
+    private javax.swing.JLabel jLabel_Placement;
+    private javax.swing.JLabel jLabel_ScoreAll;
+    private javax.swing.JLabel jLabel_ScoreNone;
+    private javax.swing.JLabel jLabel_ScorePerf;
+    private javax.swing.JLabel jLabel_ScoutName;
+    private javax.swing.JLabel jLabel_TeamNumber;
+    private javax.swing.JLabel jLabel_Teleop;
+    private javax.swing.JLabel jLabel_TeleopBehavior;
+    private javax.swing.JLabel jLabel_TeleopIntakeBehavior;
+    private javax.swing.JLabel jLabel_TeleopLH;
+    private javax.swing.JLabel jLabel_TeleopUH;
+    private javax.swing.JLabel jLabel_Top10AvgDef;
+    private javax.swing.JLabel jLabel_Top10AvgIntake;
+    private javax.swing.JLabel jLabel_Top10AvgScoreMatch;
+    private javax.swing.JLabel jLabel_Top10AvgScorePerf;
+    private javax.swing.JLabel jLabel_Top10Scores;
+    private javax.swing.JLabel jLabel_TotalPointsMatch;
+    private javax.swing.JLabel jLabel_TotalPointsRobot;
+    private javax.swing.JMenuBar jMenuBar;
     private javax.swing.JMenuItem jMenuItem_Open;
     private javax.swing.JMenuItem jMenuItem_Save;
     private javax.swing.JMenuItem jMenuItem_SaveAs;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JSlider jSlider1;
-    private javax.swing.JSlider jSlider2;
-    private javax.swing.JSlider jSlider3;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JSpinner jSpinner2;
-    private javax.swing.JTabbedPane jTabbedPane3;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
-    private javax.swing.JTable jTable5;
-    private javax.swing.JTable jTable6;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JMenu jMenu_Edit;
+    private javax.swing.JMenu jMenu_File;
+    private javax.swing.JPanel jPanel_Graphics;
+    private javax.swing.JPanel jPanel_Insights;
+    private javax.swing.JPanel jPanel_RawPanel;
+    private javax.swing.JPanel jPanel_Scout;
+    private javax.swing.JScrollPane jScrollPane;
+    private javax.swing.JScrollPane jScrollPane_TopAvgMatchScores;
+    private javax.swing.JScrollPane jScrollPane_TopAvgScorePerf;
+    private javax.swing.JScrollPane jScrollPane_TopDef;
+    private javax.swing.JScrollPane jScrollPane_TopIntake;
+    private javax.swing.JScrollPane jScrollPane_TopMatchScores;
+    private javax.swing.JSlider jSlider_DefPerf;
+    private javax.swing.JSlider jSlider_IntakePerf;
+    private javax.swing.JSlider jSlider_ScorePerf;
+    private javax.swing.JSpinner jSpinner_MatchNumber;
+    private javax.swing.JSpinner jSpinner_Placement;
+    private javax.swing.JTabbedPane jTabbedPane_Tabs;
+    private javax.swing.JTable jTable_Raw;
+    private javax.swing.JTable jTable_TopAvgMatchScores;
+    private javax.swing.JTable jTable_TopAvgScorePerf;
+    private javax.swing.JTable jTable_TopDef;
+    private javax.swing.JTable jTable_TopIntake;
+    private javax.swing.JTable jTable_TopMatchScores;
+    private javax.swing.JTextField jTextField_AutoLH;
+    private javax.swing.JTextField jTextField_AutoLHAttempt;
+    private javax.swing.JTextField jTextField_AutoUH;
+    private javax.swing.JTextField jTextField_AutoUHAttempted;
+    private javax.swing.JTextField jTextField_Comments;
+    private javax.swing.JTextField jTextField_InsightsTeamNumber;
+    private javax.swing.JTextField jTextField_ScoutName;
+    private javax.swing.JTextField jTextField_TeamNumber;
+    private javax.swing.JTextField jTextField_TeleopLH;
+    private javax.swing.JTextField jTextField_TeleopUH;
+    private javax.swing.JTextField jTextField_TotalPoints;
+    private javax.swing.JTextField jTextField_TotalPointsMatch;
     // End of variables declaration//GEN-END:variables
 
     public boolean checkSubmissions() {
+        // Method that prevents a submission for a match if all fields are not filled, and then highlights unused fields
         boolean turn = true;
 
-        if ((Integer) (jSpinner1.getValue()) == 0) {
-            jSpinner1.setBackground(Color.red);
+        if ((Integer) (jSpinner_MatchNumber.getValue()) == 0) {
+            jSpinner_MatchNumber.setBackground(Color.red);
             turn = false;
         }
 
-        if ((Integer) (jSpinner2.getValue()) == 0) {
-            jSpinner1.setBackground(Color.red);
+        if ((Integer) (jSpinner_Placement.getValue()) == 0) {
+            jSpinner_MatchNumber.setBackground(Color.red);
             turn = false;
         }
 
-        if (jTextField1.getText().equals("")) {
-            jTextField1.setBackground(Color.red);
+        if (jTextField_AutoLHAttempt.getText().equals("")) {
+            jTextField_AutoLHAttempt.setBackground(Color.red);
             turn = false;
         }
-        if (jTextField2.getText().equals("")) {
-            jTextField2.setBackground(Color.red);
+        if (jTextField_AutoUHAttempted.getText().equals("")) {
+            jTextField_AutoUHAttempted.setBackground(Color.red);
             turn = false;
         }
-        if (jTextField3.getText().equals("")) {
-            jTextField3.setBackground(Color.red);
+        if (jTextField_AutoLH.getText().equals("")) {
+            jTextField_AutoLH.setBackground(Color.red);
             turn = false;
         }
-        if (jTextField4.getText().equals("")) {
-            jTextField4.setBackground(Color.red);
+        if (jTextField_AutoUH.getText().equals("")) {
+            jTextField_AutoUH.setBackground(Color.red);
             turn = false;
         }
-        if (jTextField5.getText().equals("")) {
-            jTextField5.setBackground(Color.red);
+        if (jTextField_TeleopUH.getText().equals("")) {
+            jTextField_TeleopUH.setBackground(Color.red);
             turn = false;
         }
-        if (jTextField7.getText().equals("")) {
-            jTextField7.setBackground(Color.red);
+        if (jTextField_TeleopLH.getText().equals("")) {
+            jTextField_TeleopLH.setBackground(Color.red);
             turn = false;
         }
-        if (jTextField11.getText().equals("")) {
-            jTextField11.setBackground(Color.red);
+        if (jTextField_TeamNumber.getText().equals("")) {
+            jTextField_TeamNumber.setBackground(Color.red);
             turn = false;
         }
-        if (jTextField12.getText().equals("")) {
-            jTextField12.setBackground(Color.red);
+        if (jTextField_ScoutName.getText().equals("")) {
+            jTextField_ScoutName.setBackground(Color.red);
             turn = false;
         }
 
@@ -1467,25 +1500,28 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     public void clearHighlights() {
-        jSpinner1.setBackground(Color.white);
-        jSpinner2.setBackground(Color.white);
+        // Sets background colors of match submission fields to white
+        jSpinner_MatchNumber.setBackground(Color.white);
+        jSpinner_Placement.setBackground(Color.white);
 
-        jTextField1.setBackground(Color.white);
-        jTextField11.setBackground(Color.white);
-        jTextField12.setBackground(Color.white);
-        jTextField2.setBackground(Color.white);
-        jTextField3.setBackground(Color.white);
-        jTextField4.setBackground(Color.white);
-        jTextField5.setBackground(Color.white);
-        jTextField7.setBackground(Color.white);
+        jTextField_AutoLHAttempt.setBackground(Color.white);
+        jTextField_TeamNumber.setBackground(Color.white);
+        jTextField_ScoutName.setBackground(Color.white);
+        jTextField_AutoUHAttempted.setBackground(Color.white);
+        jTextField_AutoLH.setBackground(Color.white);
+        jTextField_AutoUH.setBackground(Color.white);
+        jTextField_TeleopUH.setBackground(Color.white);
+        jTextField_TeleopLH.setBackground(Color.white);
     }
 
     public void updateRawTable() {
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        // Uses a Default Table model to create a table of raw data submissions from the matches keyset
+        // 
+        DefaultTableModel model = (DefaultTableModel) jTable_Raw.getModel();
         model.setRowCount(0);
 
         for (Integer key : matches.keySet()) {
-            // Gets each case and builds an Object[] array out of the data
+            // Gets each match and builds an Object[] array out of the data
             Match m = matches.get(key);
             Object[] row = new Object[5];
 
@@ -1554,6 +1590,8 @@ public class MainWindow extends javax.swing.JFrame {
     }
     
     public void updateHeighestTables() {
+        // Updates tables for highest scores on the insights tab, does not run
+        // if there are less than 10 matches in the <matches> treeset.
         if (matches.size() < 10) {
             return;
         }
@@ -1566,6 +1604,9 @@ public class MainWindow extends javax.swing.JFrame {
     }
     
     public void updateHeighestScoreTable() {
+        // Stores an arraylist of the top ten scoring matches and creates a table
+        // of them using the defaultTableModel. All data put into the table is also
+        // formatted before it is added to the table for readability.
         int[] topTen = new int[10];
         
         TreeMap<Integer, Match> matchesCopy = new TreeMap<>();
@@ -1584,7 +1625,7 @@ public class MainWindow extends javax.swing.JFrame {
             matchesCopy.remove(heighestMatchScoreKey);
         }
         
-        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+        DefaultTableModel model = (DefaultTableModel) jTable_TopMatchScores.getModel();
         model.setRowCount(0);
         
         for (int key : topTen) {
@@ -1611,6 +1652,8 @@ public class MainWindow extends javax.swing.JFrame {
     }
     
     public void updateHeighestAvgScoreTable() {
+        // Updates the highest average score table to display the top ten robots
+        // scores by gathering scores from matches and creating a list of robots with scores 
         TreeMap<Integer, ArrayList<Robot>> robots = new TreeMap<Integer, ArrayList<Robot>>();
                 
         for (int key : matches.keySet()) {
@@ -1716,7 +1759,7 @@ public class MainWindow extends javax.swing.JFrame {
             averagesCopy.remove(heighestScoreKey);
         }
         
-        DefaultTableModel model = (DefaultTableModel) jTable3.getModel();
+        DefaultTableModel model = (DefaultTableModel) jTable_TopAvgMatchScores.getModel();
         model.setRowCount(0);
         
         int i = 0;
@@ -1731,6 +1774,9 @@ public class MainWindow extends javax.swing.JFrame {
     }
     
     public void updateHeighestIntakeTable() {
+        //Updates the table for highest intake ratings using data from <matches> 
+        // treemap by creating a list of robots and averaging their intake scores across matches
+        
         TreeMap<Integer, ArrayList<Robot>> robots = new TreeMap<Integer, ArrayList<Robot>>();
                 
         for (int key : matches.keySet()) {
@@ -1836,7 +1882,7 @@ public class MainWindow extends javax.swing.JFrame {
             averagesCopy.remove(heighestScoreKey);
         }
         
-        DefaultTableModel model = (DefaultTableModel) jTable5.getModel();
+        DefaultTableModel model = (DefaultTableModel) jTable_TopIntake.getModel();
         model.setRowCount(0);
         
         int i = 0;
@@ -1851,6 +1897,10 @@ public class MainWindow extends javax.swing.JFrame {
     }
     
     public void updateHeighestScoringPerfomanceTable() {
+        // Cerates a table of robots with the highest scoring performance rating
+        // which is gathered by creating an treemap of robots and their matches and storing their
+        // scoring information in each robot from the existing data in <matches>
+        
         TreeMap<Integer, ArrayList<Robot>> robots = new TreeMap<Integer, ArrayList<Robot>>();
                 
         for (int key : matches.keySet()) {
@@ -1956,7 +2006,7 @@ public class MainWindow extends javax.swing.JFrame {
             averagesCopy.remove(heighestScoreKey);
         }
         
-        DefaultTableModel model = (DefaultTableModel) jTable4.getModel();
+        DefaultTableModel model = (DefaultTableModel) jTable_TopAvgScorePerf.getModel();
         model.setRowCount(0);
         
         int i = 0;
@@ -1971,6 +2021,9 @@ public class MainWindow extends javax.swing.JFrame {
     }
     
     public void updateHeighestDefenseTable() {
+        // Creates a table of robots with the highest defense ratings by creating a treemap
+        // of robots and their matches in an arraylist and calculating their average
+        // defense rating accross their matches.
         TreeMap<Integer, ArrayList<Robot>> robots = new TreeMap<Integer, ArrayList<Robot>>();
                 
         for (int key : matches.keySet()) {
@@ -2076,7 +2129,7 @@ public class MainWindow extends javax.swing.JFrame {
             averagesCopy.remove(heighestScoreKey);
         }
         
-        DefaultTableModel model = (DefaultTableModel) jTable6.getModel();
+        DefaultTableModel model = (DefaultTableModel) jTable_TopDef.getModel();
         model.setRowCount(0);
         
         int i = 0;
@@ -2091,6 +2144,8 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     private void loadMatchesFromFile() {
+        // Loads data for matches from a .csv file format for easy data entry from outside
+        // sources.
         try {
             Scanner file = new Scanner(new File("sampleData.csv"));
             System.out.println("opening csv");
@@ -2197,6 +2252,7 @@ public class MainWindow extends javax.swing.JFrame {
     }
     
     private void saveFile(File file) {
+        // Saves a given file by writting it to the FileOutputStream and ObjectOutputStream
         try {
                 FileOutputStream fos = new FileOutputStream(file);
                 ObjectOutputStream oos = new ObjectOutputStream(fos);
